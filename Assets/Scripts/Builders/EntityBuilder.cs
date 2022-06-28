@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityBuilder : SuperBuilder
+public class EntityBuilder : Builder
 {
-    public static Entity Build(SpeciesKey speciesKey)
+    int level = 5;
+
+    public EntityBuilder WithLevel(int level)
     {
-        EntityData entityData = EntityDataBuilder.Build(speciesKey);
+        this.level = level;
+        return this;
+    }
+
+    public Entity Build(SpeciesKey speciesKey = SpeciesKey.CHARMANDER)
+    {
+        EntityData entityData = new EntityDataBuilder().WithLevel(level).Build(speciesKey);
 
         return new Entity(entityData);
     }

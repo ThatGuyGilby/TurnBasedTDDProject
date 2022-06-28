@@ -9,9 +9,7 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntityHealthCalculatedCorrectly()
     {
-        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
-
-        entity.SetLevel(100);
+        Entity entity = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
 
         Assert.AreEqual(282, entity.Health);
     }
@@ -19,9 +17,7 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntityAttackCalculatedCorrectly()
     {
-        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
-
-        entity.SetLevel(100);
+        Entity entity = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
 
         Assert.AreEqual(203, entity.Attack);
     }
@@ -29,9 +25,7 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntityDefenceCalculatedCorrectly()
     {
-        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
-
-        entity.SetLevel(100);
+        Entity entity = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
 
         Assert.AreEqual(185, entity.Defence);
     }
@@ -39,9 +33,7 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntitySpecialAttackCalculatedCorrectly()
     {
-        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
-
-        entity.SetLevel(100);
+        Entity entity = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
 
         Assert.AreEqual(219, entity.SpecialAttack);
     }
@@ -49,9 +41,7 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntitySpecialDefenceCalculatedCorrectly()
     {
-        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
-
-        entity.SetLevel(100);
+        Entity entity = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
 
         Assert.AreEqual(199, entity.SpecialDefence);
     }
@@ -59,9 +49,7 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntitySpeedCalculatedCorrectly()
     {
-        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
-
-        entity.SetLevel(100);
+        Entity entity = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
 
         Assert.AreEqual(229, entity.Speed);
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class HelperFunctions
 {
+    #region Data Helper Functions
     public static Dictionary<string, SpeciesData> speciesDataDictionary;
     public static Dictionary<string, MoveData> moveDataDictionary;
     public static Dictionary<string, AttributeData> attributeDataDictionary;
@@ -139,4 +140,27 @@ public class HelperFunctions
             attributeDataDictionary.Add(attributeData.name.ToUpper(), attributeData);
         }
     }
+    #endregion Data Helper Functions
+
+    #region Battle Helper Functions
+    public static void ProcessAttack(TurnData turnData, BattleData battleData)
+    {
+        Entity attacker = turnData.attackerEntity;
+        Entity defender = turnData.defenderEntity;
+        MoveData move = HelperFunctions.MoveDataFromMoveKey(turnData.moveKey);
+
+        var k = defender.GetIncomingMultiplier(move.attributeKey);
+        Debug.Log(k);
+
+        int power = move.power;
+
+        int damage = power;
+
+        if (attacker.IsAlive())
+        {
+            Debug.Log(damage);
+            defender.TakeDamage(damage);
+        }
+    }
+    #endregion Battle Helper Functions
 }

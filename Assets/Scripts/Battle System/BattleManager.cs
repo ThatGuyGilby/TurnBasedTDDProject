@@ -35,12 +35,12 @@ public class BattleManager
 
         foreach(TurnData turnData in sortedList)
         {
-            BattleHelperFunctions.ProcessAttack(turnData, battleData);
+            HelperFunctions.ProcessAttack(turnData, battleData);
         }
     }
 
     public Entity GetDummyEntity(SpeciesKey speciesKey = SpeciesKey.CHARMANDER)
     {
-        return EntityBuilder.Build(speciesKey);
+        return new EntityBuilder().Build(speciesKey);
     }
 }

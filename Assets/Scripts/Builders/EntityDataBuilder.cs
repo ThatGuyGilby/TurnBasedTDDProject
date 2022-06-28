@@ -2,12 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityDataBuilder : SuperBuilder
+public class EntityDataBuilder : Builder
 {
-    public static EntityData Build(SpeciesKey speciesKey)
+    int level = 5;
+
+    public EntityDataBuilder WithLevel(int level)
+    {
+        this.level = level;
+        return this;
+    }
+
+    public EntityData Build(SpeciesKey speciesKey = SpeciesKey.CHARMANDER)
     {
         SpeciesData speciesData = HelperFunctions.SpeciesDataFromSpeciesKey(speciesKey);
 
-        return new EntityData(speciesData.name, 5, speciesKey, speciesData);
+        return new EntityData(speciesData.name, level, speciesKey, speciesData);
     }
 }
