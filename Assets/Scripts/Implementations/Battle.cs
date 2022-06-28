@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
-public class BattleManager
+public class Battle
 {
     public BattleData battleData;
     public Entity playerEntity;
@@ -12,7 +12,7 @@ public class BattleManager
 
     public bool IsInitialized { get; private set; }
 
-    public BattleManager()
+    public Battle()
     {
         IsInitialized = false;
     }

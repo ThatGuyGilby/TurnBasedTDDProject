@@ -4,12 +4,12 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class BattleCalculationTests
+public class BattleTests
 {
     [Test]
     public void BattleIsInitializedCorrectly()
     {
-        BattleManager battleManager = new BattleManager();
+        Battle battleManager = new Battle();
 
         battleManager.InitializeBattle();
 

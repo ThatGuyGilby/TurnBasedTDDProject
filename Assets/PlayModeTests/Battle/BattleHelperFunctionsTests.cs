@@ -9,7 +9,7 @@ public class BattleHelperFunctionsTests
     [Test]
     public void ProcessAttackDealsDamageCorrectly()
     {
-        BattleManager battleManager = new BattleManager();
+        Battle battleManager = new Battle();
 
         battleManager.InitializeBattle();
 
