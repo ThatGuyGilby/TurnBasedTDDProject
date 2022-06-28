@@ -9,66 +9,60 @@ public class EntityDataStatCalculationTests
     [Test]
     public void EntityHealthCalculatedCorrectly()
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
 
-        entityData.level = 100;
-        entityData.Update();
+        entity.SetLevel(100);
 
-        Assert.AreEqual(282, entityData.Health);
+        Assert.AreEqual(282, entity.Health);
     }
 
     [Test]
     public void EntityAttackCalculatedCorrectly()
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
 
-        entityData.level = 100;
-        entityData.Update();
+        entity.SetLevel(100);
 
-        Assert.AreEqual(203, entityData.Attack);
+        Assert.AreEqual(203, entity.Attack);
     }
 
     [Test]
     public void EntityDefenceCalculatedCorrectly()
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
 
-        entityData.level = 100;
-        entityData.Update();
+        entity.SetLevel(100);
 
-        Assert.AreEqual(185, entityData.Defence);
+        Assert.AreEqual(185, entity.Defence);
     }
 
     [Test]
     public void EntitySpecialAttackCalculatedCorrectly()
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
 
-        entityData.level = 100;
-        entityData.Update();
+        entity.SetLevel(100);
 
-        Assert.AreEqual(219, entityData.SpecialAttack);
+        Assert.AreEqual(219, entity.SpecialAttack);
     }
 
     [Test]
     public void EntitySpecialDefenceCalculatedCorrectly()
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
 
-        entityData.level = 100;
-        entityData.Update();
+        entity.SetLevel(100);
 
-        Assert.AreEqual(199, entityData.SpecialDefence);
+        Assert.AreEqual(199, entity.SpecialDefence);
     }
 
     [Test]
     public void EntitySpeedCalculatedCorrectly()
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        Entity entity = EntityBuilder.Build(SpeciesKey.CHARMANDER);
 
-        entityData.level = 100;
-        entityData.Update();
+        entity.SetLevel(100);
 
-        Assert.AreEqual(229, entityData.Speed);
+        Assert.AreEqual(229, entity.Speed);
     }
 }

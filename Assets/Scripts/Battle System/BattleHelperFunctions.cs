@@ -7,21 +7,21 @@ public class BattleHelperFunctions
 {
     public static void ProcessAttack(TurnData turnData, BattleData battleData)
     {
-        EntityData attacker = turnData.attackerEntityData;
-        EntityData defender = turnData.defenderEntityData;
-        MoveData move = MasterFactory.MoveDataFromMoveKey(turnData.moveKey);
+        Entity attacker = turnData.attackerEntity;
+        Entity defender = turnData.defenderEntity;
+        MoveData move = HelperFunctions.MoveDataFromMoveKey(turnData.moveKey);
 
-        var k = defender.speciesData.GetIncomingMultiplier(move.attributeKey);
+        var k = defender.GetIncomingMultiplier(move.attributeKey);
         Debug.Log(k);
 
         int power = move.power;
 
         int damage = power;
 
-        if (turnData.attackerEntityData.alive)
+        if (attacker.IsAlive())
         {
             Debug.Log(damage);
-            turnData.defenderEntityData.TakeDamage(damage);
+            defender.TakeDamage(damage);
         }
     }
 }

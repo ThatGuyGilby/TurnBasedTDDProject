@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TurnData
 {
-    public EntityData attackerEntityData;
-    public EntityData defenderEntityData;
+    public Entity attackerEntity;
+    public Entity defenderEntity;
     public MoveKey moveKey;
 
-    public TurnData(EntityData attackerEntityData, EntityData defenderEntityData, MoveKey moveKey)
+    public TurnData(Entity attackerEntity, Entity defenderEntity, MoveKey moveKey)
     {
-        this.attackerEntityData = attackerEntityData;
-        this.defenderEntityData = defenderEntityData;
+        this.attackerEntity = attackerEntity;
+        this.defenderEntity = defenderEntity;
         this.moveKey = moveKey;
     }
 }

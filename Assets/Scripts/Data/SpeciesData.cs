@@ -27,38 +27,4 @@ public class SpeciesData
         this.baseSpeed = baseSpeed;
         this.attributeKeys = attributeKeys;
     }
-
-    public float GetIncomingMultiplier(string attributeString)
-    {
-        float multiplier = 1f;
-
-        AttributeData incomingAttribute = MasterFactory.AttributeDataFromString(attributeString);
-
-        List<AttributeData> attributeDatas = new List<AttributeData>();
-
-        foreach (var item in attributeKeys)
-        {
-            attributeDatas.Add(MasterFactory.AttributeDataFromString(item));
-        }
-
-        foreach (var item in attributeDatas)
-        {
-            if (item.resistances.Contains(incomingAttribute.name))
-            {
-                multiplier *= 0.5f;
-            }
-
-            if (item.weaknesses.Contains(incomingAttribute.name))
-            {
-                multiplier *= 2f;
-            }
-
-            if (item.immunities.Contains(incomingAttribute.name))
-            {
-                multiplier = 0;
-            }
-        }
-
-        return multiplier;
-    }
 }

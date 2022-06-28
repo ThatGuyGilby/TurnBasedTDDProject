@@ -7,8 +7,8 @@ using UnityEngine;
 public class BattleManager
 {
     public BattleData battleData;
-    public EntityData playerEntity;
-    public EntityData enemyEntity;
+    public Entity playerEntity;
+    public Entity enemyEntity;
 
     public bool IsInitialized { get; private set; }
 
@@ -21,15 +21,15 @@ public class BattleManager
     {
         battleData = new BattleData();
 
-        playerEntity = GetDummyEntityData();
-        enemyEntity = GetDummyEntityData(SpeciesKey.BULBASAUR);
+        playerEntity = GetDummyEntity();
+        enemyEntity = GetDummyEntity(SpeciesKey.BULBASAUR);
 
         IsInitialized = true;
     }
 
     public void ProcessTurnData(List<TurnData> turnDatas)
     {
-        List<TurnData> sortedList = turnDatas.OrderByDescending(o => o.attackerEntityData.Speed).ToList();
+        List<TurnData> sortedList = turnDatas.OrderByDescending(o => o.attackerEntity.Speed).ToList();
 
         // TODO: Speed ties
 
@@ -39,15 +39,8 @@ public class BattleManager
         }
     }
 
-    private EntityData GetDummyEntityData(SpeciesKey speciesKey = SpeciesKey.CHARMANDER,  string nickname = "")
+    public Entity GetDummyEntity(SpeciesKey speciesKey = SpeciesKey.CHARMANDER)
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(speciesKey);
-
-        if (nickname != "")
-        {
-            entityData.nickname = nickname;
-        }
-
-        return entityData;
+        return EntityBuilder.Build(speciesKey);
     }
 }

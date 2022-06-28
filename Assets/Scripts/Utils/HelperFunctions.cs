@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
-public class MasterFactory
+public class HelperFunctions
 {
     public static Dictionary<string, SpeciesData> speciesDataDictionary;
     public static Dictionary<string, MoveData> moveDataDictionary;
@@ -139,12 +138,5 @@ public class MasterFactory
         {
             attributeDataDictionary.Add(attributeData.name.ToUpper(), attributeData);
         }
-    }
-
-    public static EntityData EntityDataFromSpeciesKey(SpeciesKey speciesKey)
-    {
-        SpeciesData speciesData = SpeciesDataFromSpeciesKey(speciesKey);
-
-        return new EntityData(speciesData.name, 5, speciesKey, speciesData);
     }
 }
