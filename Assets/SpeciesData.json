@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Charmander",
+    "baseHealth": 39,
+    "baseAttack": 52,
+    "baseDefence": 43,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefence": 50,
+    "baseSpeed": 65
+  },
+  {
+    "name": "Bulbasaur",
+    "baseHealth": 45,
+    "baseAttack": 49,
+    "baseDefence": 49,
+    "baseSpecialAttack": 65,
+    "baseSpecialDefence": 65,
+    "baseSpeed": 45
+  }
+]

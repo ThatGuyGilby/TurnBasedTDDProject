@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpeciesKey
+public class MoveData
 {
-    CHARMANDER,
-    BULBASAUR
+    public string name;
+    public int power;
 }

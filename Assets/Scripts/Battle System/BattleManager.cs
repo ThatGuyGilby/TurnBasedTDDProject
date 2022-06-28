@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleManager
 {
+    public BattleData battleData;
+    public EntityData playerEntity;
+    public EntityData enemyEntity;
+
     public bool IsInitialized { get; private set; }
 
     public BattleManager()
@@ -13,19 +18,29 @@ public class BattleManager
 
     public void InitializeBattle()
     {
-        Debug.Log("Initializing battle");
+        battleData = new BattleData();
 
-        EntityData playerEntity = GetDummyEntityData();
-        EntityData enemyEntity = GetDummyEntityData();
-
-        Debug.Log(playerEntity.nickname + " vs. " + enemyEntity.nickname);
+        playerEntity = GetDummyEntityData();
+        enemyEntity = GetDummyEntityData(SpeciesKey.BULBASAUR);
 
         IsInitialized = true;
     }
 
-    private EntityData GetDummyEntityData(string nickname = "")
+    public void ProcessTurnData(List<TurnData> turnDatas)
     {
-        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        List<TurnData> sortedList = turnDatas.OrderByDescending(o => o.attackerEntityData.Speed).ToList();
+
+        // TODO: Speed ties
+
+        foreach(TurnData turnData in sortedList)
+        {
+            BattleHelperFunctions.ProcessAttack(turnData, battleData);
+        }
+    }
+
+    private EntityData GetDummyEntityData(SpeciesKey speciesKey = SpeciesKey.CHARMANDER,  string nickname = "")
+    {
+        EntityData entityData = MasterFactory.EntityDataFromSpeciesKey(speciesKey);
 
         if (nickname != "")
         {
