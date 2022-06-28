@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class EntityDataBuilder : Builder
 {
+    string nickname = "";
     int level = 5;
+
+    public EntityDataBuilder WithNickname(string nickname)
+    {
+        this.nickname = nickname;
+        return this;
+    }
 
     public EntityDataBuilder WithLevel(int level)
     {
@@ -16,6 +23,11 @@ public class EntityDataBuilder : Builder
     {
         SpeciesData speciesData = HelperFunctions.SpeciesDataFromSpeciesKey(speciesKey);
 
-        return new EntityData(speciesData.name, level, speciesKey, speciesData);
+        if (nickname == "")
+        {
+            nickname = speciesData.name;
+        }
+
+        return new EntityData(nickname, level, speciesKey, speciesData);
     }
 }

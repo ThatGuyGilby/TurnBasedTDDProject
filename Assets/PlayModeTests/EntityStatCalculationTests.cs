@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class EntityDataStatCalculationTests
+public class EntityStatCalculationTests
 {
     [Test]
     public void EntityHealthCalculatedCorrectly()
