@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpeciesKey
+public enum MoveKey
 {
-    CHARMANDER,
-    BULBASAUR
+    TACKLE
 }
