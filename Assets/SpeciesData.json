@@ -1,6 +1,7 @@
 [
   {
     "name": "Charmander",
+    "attributeKeys": [ "Fire" ],
     "baseHealth": 39,
     "baseAttack": 52,
     "baseDefence": 43,
@@ -10,6 +11,7 @@
   },
   {
     "name": "Bulbasaur",
+    "attributeKeys": [ "Grass" ],
     "baseHealth": 45,
     "baseAttack": 49,
     "baseDefence": 49,

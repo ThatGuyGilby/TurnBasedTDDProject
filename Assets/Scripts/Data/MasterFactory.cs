@@ -9,6 +9,7 @@ public class MasterFactory
 {
     public static Dictionary<string, SpeciesData> speciesDataDictionary;
     public static Dictionary<string, MoveData> moveDataDictionary;
+    public static Dictionary<string, AttributeData> attributeDataDictionary;
 
     public static SpeciesData SpeciesDataFromSpeciesKey(SpeciesKey speciesKey)
     {
@@ -25,7 +26,7 @@ public class MasterFactory
         }
         else
         {
-            throw new System.Exception("The given key has no entry in  the Species Dictionary");
+            throw new System.Exception("The given key has no entry in the Dictionary");
         }
     }
 
@@ -44,11 +45,47 @@ public class MasterFactory
         }
         else
         {
-            throw new System.Exception("The given key has no entry in  the Species Dictionary");
+            throw new System.Exception("The given key has no entry in the Dictionary");
         }
     }
 
+    public static AttributeData AttributeDataFromAttributeKey(AttributeKey attributeKey)
+    {
+        if (attributeDataDictionary == null)
+        {
+            LoadAttributeDataDictionary();
+        }
 
+        string keyString = attributeKey.ToString();
+
+        if (attributeDataDictionary.ContainsKey((keyString)))
+        {
+            return attributeDataDictionary[keyString];
+        }
+        else
+        {
+            throw new System.Exception("The given key has no entry in the Dictionary");
+        }
+    }
+
+    public static AttributeData AttributeDataFromString(string attributeString)
+    {
+        if (attributeDataDictionary == null)
+        {
+            LoadAttributeDataDictionary();
+        }
+
+        string keyString = attributeString.ToUpper();
+
+        if (attributeDataDictionary.ContainsKey((keyString)))
+        {
+            return attributeDataDictionary[keyString];
+        }
+        else
+        {
+            throw new System.Exception("The given key has no entry in the Dictionary");
+        }
+    }
 
     private static void LoadSpeciesDataDictionary()
     {
@@ -83,6 +120,24 @@ public class MasterFactory
         foreach (var moveData in moveDatas)
         {
             moveDataDictionary.Add(moveData.name.ToUpper(), moveData);
+        }
+    }
+
+    private static void LoadAttributeDataDictionary()
+    {
+        List<AttributeData> attributeDatas;
+
+        using (StreamReader r = new StreamReader("Assets/AttributeData.json"))
+        {
+            string json = r.ReadToEnd();
+            attributeDatas = JsonConvert.DeserializeObject<List<AttributeData>>(json);
+        }
+
+        attributeDataDictionary = new Dictionary<string, AttributeData>();
+
+        foreach (var attributeData in attributeDatas)
+        {
+            attributeDataDictionary.Add(attributeData.name.ToUpper(), attributeData);
         }
     }
 

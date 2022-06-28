@@ -1,6 +1,8 @@
 [
   {
     "name": "Tackle",
-    "power": 5
+    "attributeKey": "Fire",
+    "power": 45,
+    "accuracy": 100
   }
 ]
