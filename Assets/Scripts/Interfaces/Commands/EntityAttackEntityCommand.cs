@@ -67,7 +67,7 @@ public class EntityAttackEntityCommand : ICommand
 
                 float percentDamage = (damage / (float)defender.Health) * 100f;
 
-                Output($"The opposing {defender.Name} lost {percentDamage}% of its health!)");
+                Output($"The opposing {defender.Name} lost {percentDamage}% of its health!");
             }
         }
     }
