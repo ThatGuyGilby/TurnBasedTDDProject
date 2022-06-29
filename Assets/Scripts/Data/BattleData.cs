@@ -13,9 +13,6 @@ public class BattleData
     public BattleData(List<Entity> playerEntities, List<Entity> enemyEntities)
     {
         this.playerEntities = playerEntities;
-        activePlayerEntity = this.playerEntities[0];
-
         this.enemyEntities = enemyEntities;
-        activeEnemyEntity = this.enemyEntities[0];
     }
 }

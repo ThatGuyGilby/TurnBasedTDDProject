@@ -22,7 +22,20 @@ public class Battle
             return;
         }
 
+        SetActiveEntities();
+
+        if (battleData.activePlayerEntity == null || battleData.activeEnemyEntity == null)
+        {
+            return;
+        }
+
         IsInitialized = true;
+    }
+
+    private void SetActiveEntities()
+    {
+        battleData.activePlayerEntity = battleData.playerEntities[0];
+        battleData.activeEnemyEntity = battleData.enemyEntities[0];
     }
 
     public void ProcessTurnData(List<TurnData> turnDatas)
