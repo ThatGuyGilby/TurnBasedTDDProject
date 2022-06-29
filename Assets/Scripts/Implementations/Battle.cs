@@ -38,6 +38,31 @@ public class Battle
         battleData.activeEnemyEntity = battleData.enemyEntities[0];
     }
 
+    public int EntityAttackEntity(Entity attacker, Entity defender, MoveKey moveKey)
+    {
+        MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
+
+        float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
+        int power = moveData.power;
+        int atk = attacker.Attack;
+        int def = defender.Defence;
+
+        float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f)*power*atk/def)/50f)+2f;
+
+        baseDamage *= moveAttributeDamageMultiplier;
+
+        int damage = Mathf.CeilToInt(baseDamage);
+
+        if (attacker.IsAlive())
+        {
+            Debug.Log($"{defender.Name} took {damage} damage from {attacker.Name}'s {moveData.name}");
+            defender.TakeDamage(damage);
+            return damage;
+        }
+
+        return 0;
+    }
+
     public void ProcessTurnData(List<TurnData> turnDatas)
     {
         List<TurnData> sortedList = turnDatas.OrderByDescending(o => o.attackerEntity.Speed).ToList();

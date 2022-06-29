@@ -31,7 +31,10 @@ public class Entity
         entityData.speed = TempCalculateStat(entityData.speciesData.baseSpeed, Constants.OTHER_STAT_MINIMUM_VALUE);
     }
 
+    public string Name => entityData.nickname;
+
     public int Health => entityData.health;
+    public int Level => entityData.level;
     public int Attack => entityData.attack;
     public int Defence => entityData.defence;
     public int SpecialAttack => entityData.specialAttack;
