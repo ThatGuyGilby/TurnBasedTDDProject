@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EntityBuilder : Builder
 {
-    string nickname = "";
-    int level = 5;
+    private string nickname = "";
+    private int level = 5;
 
     public EntityBuilder WithNickname(string nickname)
     {

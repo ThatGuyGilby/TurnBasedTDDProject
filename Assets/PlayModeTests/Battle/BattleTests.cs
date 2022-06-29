@@ -9,10 +9,13 @@ public class BattleTests
     [Test]
     public void BattleIsInitializedCorrectly()
     {
-        Battle battleManager = new Battle();
+        Entity charmander = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
+        Entity bulbasaur = new EntityBuilder().WithLevel(100).Build(SpeciesKey.BULBASAUR);
 
-        battleManager.InitializeBattle();
+        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
 
-        Assert.IsTrue(battleManager.IsInitialized);
+        battle.Initialize();
+
+        Assert.IsTrue(battle.IsInitialized);
     }
 }

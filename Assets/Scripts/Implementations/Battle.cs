@@ -6,23 +6,21 @@ using UnityEngine;
 
 public class Battle
 {
-    public BattleData battleData;
-    public Entity playerEntity;
-    public Entity enemyEntity;
+    private BattleData battleData;
+
+    public Battle(BattleData battleData)
+    {
+        this.battleData = battleData;
+    }
 
     public bool IsInitialized { get; private set; }
 
-    public Battle()
+    public void Initialize()
     {
-        IsInitialized = false;
-    }
-
-    public void InitializeBattle()
-    {
-        battleData = new BattleData();
-
-        playerEntity = GetDummyEntity();
-        enemyEntity = GetDummyEntity(SpeciesKey.BULBASAUR);
+        if (battleData.enemyEntities.Count == 0 || battleData.playerEntities.Count == 0)
+        {
+            return;
+        }
 
         IsInitialized = true;
     }
