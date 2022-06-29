@@ -4,7 +4,7 @@ using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
-public class Builder
+public interface IBuilder<T>
 {
-
+    public abstract T Build();
 }

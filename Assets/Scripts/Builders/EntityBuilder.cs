@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityBuilder : Builder
+public class EntityBuilder : IBuilder<Entity>
 {
-    private string nickname = "";
-    private int level = 5;
+    private string nickname;
+    private int level;
+    private SpeciesKey speciesKey;
+
+    public EntityBuilder()
+    {
+        this.nickname = "";
+        this.level = 1;
+        this.speciesKey = SpeciesKey.CHARMANDER;
+    }
 
     public EntityBuilder WithNickname(string nickname)
     {
@@ -18,9 +26,15 @@ public class EntityBuilder : Builder
         return this;
     }
 
-    public Entity Build(SpeciesKey speciesKey = SpeciesKey.CHARMANDER)
+    public EntityBuilder WithSpecies(SpeciesKey speciesKey)
     {
-        EntityData entityData = new EntityDataBuilder().WithNickname(nickname).WithLevel(level).Build(speciesKey);
+        this.speciesKey = speciesKey;
+        return this;
+    }
+
+    public Entity Build()
+    {
+        EntityData entityData = new EntityDataBuilder().WithNickname(nickname).WithLevel(level).WithSpecies(speciesKey).Build();
 
         return new Entity(entityData);
     }

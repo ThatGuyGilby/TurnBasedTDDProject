@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleBuilder : Builder
+public class BattleBuilder : IBuilder<Battle>
 {
     private List<Entity> playerEntities;
     private List<Entity> enemyEntities;
