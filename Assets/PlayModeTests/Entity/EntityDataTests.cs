@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-public class EntityStatCalculationTests
+public class EntityDataTests
 {
     #region Public Methods
 

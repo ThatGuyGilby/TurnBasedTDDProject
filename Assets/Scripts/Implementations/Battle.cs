@@ -68,10 +68,20 @@ public class Battle : IInvoker
 
     #region Private Methods
 
+    private void SendEntityIntoBattle(Entity entity, Entity other, ref Entity activeEntity)
+    {
+        EntitySentIntoBattle entitySentIntoBattle = new EntitySentIntoBattle(entity, other);
+        QueueCommand(entitySentIntoBattle);
+
+        activeEntity = entity;
+    }
+
     private void SetActiveEntities()
     {
-        battleData.activePlayerEntity = battleData.playerEntities[0];
-        battleData.activeEnemyEntity = battleData.enemyEntities[0];
+        SendEntityIntoBattle(battleData.playerEntities[0], battleData.activeEnemyEntity, ref battleData.activePlayerEntity);
+        SendEntityIntoBattle(battleData.enemyEntities[0], battleData.activePlayerEntity, ref battleData.activeEnemyEntity);
+
+        ExecuteQueuedCommands();
     }
 
     #endregion Private Methods
