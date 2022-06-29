@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpeciesData
 {
     public string name;
+    public List<string> attributeKeys;
 
     #region Base Stats
     public int baseHealth;
@@ -14,7 +15,8 @@ public class SpeciesData
     public int baseSpecialDefence;
     public int baseSpeed;
     #endregion Base Stats
-    public SpeciesData(string name, int baseHealth, int baseAttack, int baseDefence, int baseSpecialAttack, int baseSpecialDefence, int baseSpeed)
+
+    public SpeciesData(string name, int baseHealth, int baseAttack, int baseDefence, int baseSpecialAttack, int baseSpecialDefence, int baseSpeed, List<string> attributeKeys)
     {
         this.name = name;
         this.baseHealth = baseHealth;
@@ -23,5 +25,6 @@ public class SpeciesData
         this.baseSpecialAttack = baseSpecialAttack;
         this.baseSpecialDefence = baseSpecialDefence;
         this.baseSpeed = baseSpeed;
+        this.attributeKeys = attributeKeys;
     }
 }

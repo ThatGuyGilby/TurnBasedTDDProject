@@ -1,6 +1,8 @@
 [
   {
     "name": "Tackle",
-    "power": 5
+    "attributeKey": "Normal",
+    "power": 35,
+    "accuracy": 100
   }
 ]
