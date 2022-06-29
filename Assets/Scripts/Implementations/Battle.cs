@@ -7,6 +7,21 @@ using UnityEngine;
 public class Battle : IInvoker
 {
     private BattleData battleData;
+    public void QueueCommand(ICommand command)
+    {
+        battleData.queuedCommands.Add(command);
+    }
+
+    public void ExecuteQueuedCommands()
+    {
+        foreach (var item in battleData.queuedCommands)
+        {
+            item.Execute();
+            battleData.executedCommands.Add(item);
+        }
+
+        battleData.queuedCommands = new List<ICommand>();
+    }
 
     public Battle(BattleData battleData)
     {
@@ -36,22 +51,6 @@ public class Battle : IInvoker
     {
         battleData.activePlayerEntity = battleData.playerEntities[0];
         battleData.activeEnemyEntity = battleData.enemyEntities[0];
-    }
-
-    public void QueueCommand(ICommand command)
-    {
-        battleData.queuedCommands.Add(command);
-    }
-
-    public void ExecuteQueuedCommands()
-    {
-        foreach (var item in battleData.queuedCommands)
-        {
-            item.Execute();
-            battleData.executedCommands.Add(item);
-        }
-
-        battleData.queuedCommands = new List<ICommand>();
     }
 
     public void ProcessTurnData(List<TurnData> turnDatas)
