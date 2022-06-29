@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
@@ -114,7 +113,7 @@ public class HelperFunctions
     {
         List<SpeciesData> speciesDatas;
 
-        using (StreamReader r = new StreamReader("Assets/SpeciesData.json"))
+        using (StreamReader r = new StreamReader(Constants.SPECIES_DATA_PATH))
         {
             string json = r.ReadToEnd();
             speciesDatas = JsonConvert.DeserializeObject<List<SpeciesData>>(json);
@@ -132,7 +131,7 @@ public class HelperFunctions
     {
         List<MoveData> moveDatas;
 
-        using (StreamReader r = new StreamReader("Assets/MoveData.json"))
+        using (StreamReader r = new StreamReader(Constants.MOVE_DATA_PATH))
         {
             string json = r.ReadToEnd();
             moveDatas = JsonConvert.DeserializeObject<List<MoveData>>(json);
@@ -150,7 +149,7 @@ public class HelperFunctions
     {
         List<AttributeData> attributeDatas;
 
-        using (StreamReader r = new StreamReader("Assets/AttributeData.json"))
+        using (StreamReader r = new StreamReader(Constants.ATTRIBUTE_DATA_PATH))
         {
             string json = r.ReadToEnd();
             attributeDatas = JsonConvert.DeserializeObject<List<AttributeData>>(json);
@@ -164,26 +163,4 @@ public class HelperFunctions
         }
     }
     #endregion Data Helper Functions
-
-    #region Battle Helper Functions
-    public static void ProcessAttack(TurnData turnData, BattleData battleData)
-    {
-        Entity attacker = turnData.attackerEntity;
-        Entity defender = turnData.defenderEntity;
-        MoveData move = HelperFunctions.MoveDataFromMoveKey(turnData.moveKey);
-
-        var k = defender.GetIncomingMultiplier(move.attributeKey);
-        Debug.Log(k);
-
-        int power = move.power;
-
-        int damage = power;
-
-        if (attacker.IsAlive())
-        {
-            Debug.Log(damage);
-            defender.TakeDamage(damage);
-        }
-    }
-    #endregion Battle Helper Functions
 }

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Constants
 {
     public static int HP_MINIMUM_VALUE = 10;
@@ -13,4 +9,10 @@ public class Constants
     #region Entity Constants
     public static float STAB_BONUS = 1.5f;
     #endregion Entity Constants
+
+    #region Data Constants
+    public static string ATTRIBUTE_DATA_PATH = "Assets/Data/AttributeData.json";
+    public static string MOVE_DATA_PATH = "Assets/Data/MoveData.json";
+    public static string SPECIES_DATA_PATH = "Assets/Data/SpeciesData.json";
+    #endregion Data Constants
 }

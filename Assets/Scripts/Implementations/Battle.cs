@@ -1,8 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Plastic.Newtonsoft.Json;
-using UnityEngine;
 
 public class Battle : IInvoker
 {
@@ -56,17 +52,5 @@ public class Battle : IInvoker
     {
         battleData.activePlayerEntity = battleData.playerEntities[0];
         battleData.activeEnemyEntity = battleData.enemyEntities[0];
-    }
-
-    public void ProcessTurnData(List<TurnData> turnDatas)
-    {
-        List<TurnData> sortedList = turnDatas.OrderByDescending(o => o.attackerEntity.Speed).ToList();
-
-        // TODO: Speed ties
-
-        foreach(TurnData turnData in sortedList)
-        {
-            HelperFunctions.ProcessAttack(turnData, battleData);
-        }
     }
 }
