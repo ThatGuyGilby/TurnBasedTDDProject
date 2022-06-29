@@ -23,7 +23,7 @@ public class BattleTests
     public void BattleEntityAttacksEntityInitialized()
     {
         Entity charmander = new EntityBuilder().WithLevel(100).Build(SpeciesKey.CHARMANDER);
-        Entity bulbasaur = new EntityBuilder().WithLevel(100).Build(SpeciesKey.BULBASAUR);
+        Entity bulbasaur = new EntityBuilder().WithLevel(50).Build(SpeciesKey.BULBASAUR);
 
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
 

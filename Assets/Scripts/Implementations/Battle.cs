@@ -43,6 +43,9 @@ public class Battle
         MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
 
         float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
+        // stab  bonus
+        // weather bonus
+        // random roll
         int power = moveData.power;
         int atk = attacker.Attack;
         int def = defender.Defence;
