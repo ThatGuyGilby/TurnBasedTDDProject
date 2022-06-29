@@ -17,7 +17,11 @@ public class EntityDataBuilder : IBuilder<EntityData>
             nickname = speciesData.name;
         }
 
-        return new EntityData(nickname, level, speciesKey, speciesData);
+        List<MoveslotData> moveslotDatas = new List<MoveslotData>();
+
+        HelperFunctions.LogReminder("Make the moveslots generate the last 4 moves that pokemon would have learned");
+
+        return new EntityData(nickname, level, speciesKey, speciesData, moveslotDatas);
     }
 
     public EntityDataBuilder()

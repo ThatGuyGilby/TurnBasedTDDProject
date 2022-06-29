@@ -131,6 +131,8 @@ public class Entity
 
     public void TakeDamage(int _damage)
     {
+        _damage = Mathf.Max(_damage, 0);
+
         entityData.currentHealth -= _damage;
 
         if (entityData.currentHealth <= 0)

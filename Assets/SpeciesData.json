@@ -2,6 +2,12 @@
   {
     "name": "Charmander",
     "attributeKeys": [ "Fire" ],
+    "speciesMoveLearnData": [
+      {
+        "Key": "Flamethrower",
+        "Value": 5
+      }
+    ],
     "baseHealth": 39,
     "baseAttack": 52,
     "baseDefence": 43,
@@ -12,6 +18,12 @@
   {
     "name": "Bulbasaur",
     "attributeKeys": [ "Grass" ],
+    "speciesMoveLearnData": [
+      {
+        "Key": "Tackle",
+        "Value": 5
+      }
+    ],
     "baseHealth": 45,
     "baseAttack": 49,
     "baseDefence": 49,

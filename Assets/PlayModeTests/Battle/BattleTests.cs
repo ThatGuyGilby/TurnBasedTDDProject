@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 
 public class BattleTests
 {
@@ -36,5 +32,11 @@ public class BattleTests
         battle.ExecuteQueuedCommands();
 
         Assert.IsFalse(battle.ActiveEnemyEntity.IsAlive());
+    }
+
+    [Test]
+    public void Ttt()
+    {
+        //HelperFunctions.OutputDummyData();
     }
 }
