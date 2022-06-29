@@ -4,9 +4,29 @@ using System.Linq;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
-public class Battle
+public class Battle : IInvoker
 {
     private BattleData battleData;
+
+    #region Properties
+    public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
+    #endregion Properties
+
+    public void QueueCommand(ICommand command)
+    {
+        battleData.queuedCommands.Add(command);
+    }
+
+    public void ExecuteQueuedCommands()
+    {
+        foreach (var item in battleData.queuedCommands)
+        {
+            item.Execute();
+            battleData.executedCommands.Add(item);
+        }
+
+        battleData.queuedCommands = new List<ICommand>();
+    }
 
     public Battle(BattleData battleData)
     {
@@ -36,34 +56,6 @@ public class Battle
     {
         battleData.activePlayerEntity = battleData.playerEntities[0];
         battleData.activeEnemyEntity = battleData.enemyEntities[0];
-    }
-
-    public int EntityAttackEntity(Entity attacker, Entity defender, MoveKey moveKey)
-    {
-        MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
-
-        float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
-        // stab  bonus
-        // weather bonus
-        // random roll
-        int power = moveData.power;
-        int atk = attacker.Attack;
-        int def = defender.Defence;
-
-        float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f)*power*atk/def)/50f)+2f;
-
-        baseDamage *= moveAttributeDamageMultiplier;
-
-        int damage = Mathf.CeilToInt(baseDamage);
-
-        if (attacker.IsAlive())
-        {
-            Debug.Log($"{defender.Name} took {damage} damage from {attacker.Name}'s {moveData.name}");
-            defender.TakeDamage(damage);
-            return damage;
-        }
-
-        return 0;
     }
 
     public void ProcessTurnData(List<TurnData> turnDatas)

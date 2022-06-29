@@ -7,6 +7,18 @@ public class Entity
 {
     private EntityData entityData;
 
+    #region Properties
+    public string Name => entityData.nickname;
+    public int Health => entityData.health;
+    public int CurrentHealth => entityData.currentHealth;
+    public int Level => entityData.level;
+    public int Attack => entityData.attack;
+    public int Defence => entityData.defence;
+    public int SpecialAttack => entityData.specialAttack;
+    public int SpecialDefence => entityData.specialDefence;
+    public int Speed => entityData.speed;
+    #endregion Properties
+
     public Entity(EntityData entityData)
     {
         this.entityData = entityData;
@@ -31,16 +43,6 @@ public class Entity
         entityData.speed = TempCalculateStat(entityData.speciesData.baseSpeed, Constants.OTHER_STAT_MINIMUM_VALUE);
     }
 
-    public string Name => entityData.nickname;
-
-    public int Health => entityData.health;
-    public int Level => entityData.level;
-    public int Attack => entityData.attack;
-    public int Defence => entityData.defence;
-    public int SpecialAttack => entityData.specialAttack;
-    public int SpecialDefence => entityData.specialDefence;
-    public int Speed => entityData.speed;
-
     public void SetLevel(int level)
     {
         entityData.level = level;
@@ -51,6 +53,7 @@ public class Entity
     {
         return entityData.alive;
     }
+
     public float GetIncomingMultiplier(string attributeString)
     {
         float multiplier = 1f;
@@ -85,6 +88,32 @@ public class Entity
         return multiplier;
     }
 
+
+    public float GetSTABMultiplier(string attributeString)
+    {
+        float multiplier = 1f;
+
+        AttributeData moveAttribute = HelperFunctions.AttributeDataFromString(attributeString);
+
+        List<AttributeData> attributeDatas = new List<AttributeData>();
+
+        foreach (var item in entityData.speciesData.attributeKeys)
+        {
+            attributeDatas.Add(HelperFunctions.AttributeDataFromString(item));
+        }
+
+        foreach (var item in attributeDatas)
+        {
+            if (item.name == moveAttribute.name)
+            {
+                multiplier = 1.5f;
+            }
+        }
+
+        return multiplier;
+    }
+
+
     private int TempCalculateStat(int _base, int _minimumValue, int _additionalBonus = 0)
     {
         return CalculateStat(_base, Constants.DUMMY_IV, Constants.DUMMY_EV, _minimumValue, Constants.DUMMY_NATURE, _additionalBonus);
@@ -102,12 +131,19 @@ public class Entity
 
     public void TakeDamage(int _damage)
     {
+        _damage = Mathf.Max(_damage, 0);
+
         entityData.currentHealth -= _damage;
 
         if (entityData.currentHealth <= 0)
         {
-            entityData.alive = false;
-            entityData.currentHealth = 0;
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        entityData.alive = false;
+        entityData.currentHealth = 0;
     }
 }

@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MoveKey
+public interface ICommand
 {
-    TACKLE,
-    SWIFT,
-    FLAMETHROWER
+    public abstract void Execute();
 }

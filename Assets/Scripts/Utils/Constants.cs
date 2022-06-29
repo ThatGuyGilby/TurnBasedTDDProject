@@ -9,4 +9,8 @@ public class Constants
     public static int DUMMY_IV = 31;
     public static int DUMMY_EV = 252;
     public static float DUMMY_NATURE = 1.0f;
+
+    #region Entity Constants
+    public static float STAB_BONUS = 1.5f;
+    #endregion Entity Constants
 }

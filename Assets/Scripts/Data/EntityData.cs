@@ -12,6 +12,7 @@ public class EntityData
     #region Persistant Data
     public int currentHealth;
     public bool alive;
+    public List<MoveslotData> moveslotDatas;
     #endregion Persistant Data
 
     #region Stats
@@ -23,11 +24,12 @@ public class EntityData
     public int speed;
     #endregion Stats
 
-    public EntityData(string nickname, int level, SpeciesKey speciesKey, SpeciesData speciesData)
+    public EntityData(string nickname, int level, SpeciesKey speciesKey, SpeciesData speciesData, List<MoveslotData> moveslotDatas)
     {
         this.nickname = nickname;
         this.level = level;
         this.speciesKey = speciesKey;
         this.speciesData = speciesData;
+        this.moveslotDatas = moveslotDatas;
     }
 }

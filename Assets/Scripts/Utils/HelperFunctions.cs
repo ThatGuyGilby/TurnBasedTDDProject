@@ -6,6 +6,18 @@ using UnityEngine;
 
 public class HelperFunctions
 {
+    #region Logging
+    public static void Log(string message)
+    {
+        Debug.Log(message);
+    }
+
+    public static void LogReminder(string message)
+    {
+        Debug.LogWarning(message);
+    }
+    #endregion Logging
+
     #region Data Helper Functions
     public static Dictionary<string, SpeciesData> speciesDataDictionary;
     public static Dictionary<string, MoveData> moveDataDictionary;
@@ -47,6 +59,17 @@ public class HelperFunctions
         {
             throw new System.Exception("The given key has no entry in the Dictionary");
         }
+    }
+
+    public static void OutputDummyData()
+    {
+        SpeciesData speciesData = SpeciesDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        speciesData.speciesMoveLearnData = new List<KeyValuePair<string, int>>();
+        speciesData.speciesMoveLearnData.Add(new KeyValuePair<string, int>("Flamethrower", 5));
+
+        string output = JsonConvert.SerializeObject(speciesData);
+
+        Debug.Log(output);
     }
 
     public static AttributeData AttributeDataFromAttributeKey(AttributeKey attributeKey)
