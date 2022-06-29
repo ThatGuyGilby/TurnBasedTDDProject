@@ -38,32 +38,20 @@ public class Battle
         battleData.activeEnemyEntity = battleData.enemyEntities[0];
     }
 
-    public int EntityAttackEntity(Entity attacker, Entity defender, MoveKey moveKey)
+    public void QueueCommand(ICommand command)
     {
-        MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
+        battleData.queuedCommands.Add(command);
+    }
 
-        float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
-        // stab  bonus
-        // weather bonus
-        // random roll
-        int power = moveData.power;
-        int atk = attacker.Attack;
-        int def = defender.Defence;
-
-        float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f)*power*atk/def)/50f)+2f;
-
-        baseDamage *= moveAttributeDamageMultiplier;
-
-        int damage = Mathf.CeilToInt(baseDamage);
-
-        if (attacker.IsAlive())
+    public void ExecuteQueuedCommands()
+    {
+        foreach (var item in battleData.queuedCommands)
         {
-            Debug.Log($"{defender.Name} took {damage} damage from {attacker.Name}'s {moveData.name}");
-            defender.TakeDamage(damage);
-            return damage;
+            item.Execute();
+            battleData.executedCommands.Add(item);
         }
 
-        return 0;
+        battleData.queuedCommands = new List<ICommand>();
     }
 
     public void ProcessTurnData(List<TurnData> turnDatas)

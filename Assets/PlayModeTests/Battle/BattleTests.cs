@@ -29,8 +29,13 @@ public class BattleTests
 
         battle.Initialize();
 
-        battle.EntityAttackEntity(charmander, bulbasaur, MoveKey.TACKLE);
-        battle.EntityAttackEntity(bulbasaur, charmander, MoveKey.TACKLE);
+        ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.TACKLE);
+        battle.QueueCommand(playerAttackEnemyCommand);
+
+        ICommand enemyAttackPlayerCommand = new EntityAttackEntityCommand(bulbasaur, charmander, MoveKey.TACKLE);
+        battle.QueueCommand(enemyAttackPlayerCommand);
+
+        battle.ExecuteQueuedCommands();
 
         Assert.IsTrue(battle.IsInitialized);
     }
