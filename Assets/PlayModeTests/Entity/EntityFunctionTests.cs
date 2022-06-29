@@ -75,4 +75,16 @@ public class EntityFunctionTests
 
         Assert.IsFalse(entity.IsAlive());
     }
+
+    [Test]
+    public void EntityInitialize()
+    {
+        Entity entity = new EntityBuilder().Build();
+
+        entity.Die();
+
+        entity.Initialize();
+
+        Assert.IsTrue(entity.IsAlive());
+    }
 }
