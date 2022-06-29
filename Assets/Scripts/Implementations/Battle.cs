@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
-public class Battle
+public class Battle : IInvoker
 {
     private BattleData battleData;
 
