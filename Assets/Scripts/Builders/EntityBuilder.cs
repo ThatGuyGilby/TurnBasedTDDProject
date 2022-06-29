@@ -8,6 +8,13 @@ public class EntityBuilder : IBuilder<Entity>
     private int level;
     private SpeciesKey speciesKey;
 
+    public Entity Build()
+    {
+        EntityData entityData = new EntityDataBuilder().WithNickname(nickname).WithLevel(level).WithSpecies(speciesKey).Build();
+
+        return new Entity(entityData);
+    }
+
     public EntityBuilder()
     {
         this.nickname = "";
@@ -30,12 +37,5 @@ public class EntityBuilder : IBuilder<Entity>
     {
         this.speciesKey = speciesKey;
         return this;
-    }
-
-    public Entity Build()
-    {
-        EntityData entityData = new EntityDataBuilder().WithNickname(nickname).WithLevel(level).WithSpecies(speciesKey).Build();
-
-        return new Entity(entityData);
     }
 }

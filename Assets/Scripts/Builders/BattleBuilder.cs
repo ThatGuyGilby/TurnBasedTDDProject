@@ -7,6 +7,13 @@ public class BattleBuilder : IBuilder<Battle>
     private List<Entity> playerEntities;
     private List<Entity> enemyEntities;
 
+    public Battle Build()
+    {
+        BattleData battleData = new BattleDataBuilder().WithPlayerEntities(playerEntities).WithEnemyEntities(enemyEntities).Build();
+
+        return new Battle(battleData);
+    }
+
     public BattleBuilder()
     {
         this.playerEntities = new List<Entity>();
@@ -35,12 +42,5 @@ public class BattleBuilder : IBuilder<Battle>
     {
         enemyEntities.AddRange(entities);
         return this;
-    }
-
-    public Battle Build()
-    {
-        BattleData battleData = new BattleDataBuilder().WithPlayerEntities(playerEntities).WithEnemyEntities(enemyEntities).Build();
-
-        return new Battle(battleData);
     }
 }

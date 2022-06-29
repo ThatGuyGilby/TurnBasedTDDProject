@@ -8,6 +8,18 @@ public class EntityDataBuilder : IBuilder<EntityData>
     private int level;
     private SpeciesKey speciesKey;
 
+    public EntityData Build()
+    {
+        SpeciesData speciesData = HelperFunctions.SpeciesDataFromSpeciesKey(speciesKey);
+
+        if (nickname == "")
+        {
+            nickname = speciesData.name;
+        }
+
+        return new EntityData(nickname, level, speciesKey, speciesData);
+    }
+
     public EntityDataBuilder()
     {
         this.nickname = "";
@@ -31,17 +43,5 @@ public class EntityDataBuilder : IBuilder<EntityData>
     {
         this.speciesKey = speciesKey;
         return this;
-    }
-
-    public EntityData Build()
-    {
-        SpeciesData speciesData = HelperFunctions.SpeciesDataFromSpeciesKey(speciesKey);
-
-        if (nickname == "")
-        {
-            nickname = speciesData.name;
-        }
-
-        return new EntityData(nickname, level, speciesKey, speciesData);
     }
 }
