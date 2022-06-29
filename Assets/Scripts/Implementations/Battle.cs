@@ -36,9 +36,4 @@ public class Battle
             HelperFunctions.ProcessAttack(turnData, battleData);
         }
     }
-
-    public Entity GetDummyEntity(SpeciesKey speciesKey = SpeciesKey.CHARMANDER)
-    {
-        return new EntityBuilder().Build(speciesKey);
-    }
 }
