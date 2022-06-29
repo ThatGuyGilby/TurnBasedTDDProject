@@ -65,4 +65,14 @@ public class EntityFunctionTests
 
         Assert.IsFalse(healthIncreased);
     }
+
+    [Test]
+    public void EntityDie()
+    {
+        Entity entity = new EntityBuilder().Build();
+
+        entity.Die();
+
+        Assert.IsFalse(entity.IsAlive());
+    }
 }
