@@ -1,0 +1,20 @@
+# TurnBasedTDDProject
+
+### Architecture
+## Utils
+- HelperFunctions
+- Constants
+## Interfaces
+- IBuilder
+- ICommmand
+- IInvoker
+## Data
+- EntityData
+- BattleData
+- SpeciesData
+- AttributeData
+- MoveData
+- MoveslotData
+## Implementations
+- Entity
+- Battle
