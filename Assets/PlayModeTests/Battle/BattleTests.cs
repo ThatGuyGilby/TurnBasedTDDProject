@@ -20,7 +20,7 @@ public class BattleTests
     }
 
     [Test]
-    public void BattleEntityAttacksEntityInitialized()
+    public void BattleQueueAndExecuteCommand()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         charmander.Initialize();
@@ -35,6 +35,6 @@ public class BattleTests
         battle.QueueCommand(playerAttackEnemyCommand);
         battle.ExecuteQueuedCommands();
 
-        Assert.IsTrue(battle.IsInitialized);
+        Assert.IsFalse(battle.ActiveEnemyEntity.IsAlive());
     }
 }

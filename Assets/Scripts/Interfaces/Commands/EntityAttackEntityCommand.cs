@@ -20,14 +20,14 @@ public class EntityAttackEntityCommand : ICommand
         MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
 
         float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
-        // stab  bonus
+        float stabBonus = attacker.GetSTABMultiplier(moveData.attributeKey);
         // weather bonus
         // random roll
         int power = moveData.power;
         int atk = 0;
         int def = 0;
 
-        Output($"{attacker.Name} used {moveData.name}!");
+        HelperFunctions.Log($"{attacker.Name} used {moveData.name}!");
 
         if (moveData.preset == "Physical")
         {
@@ -47,19 +47,20 @@ public class EntityAttackEntityCommand : ICommand
             {
                 case 0.25f:
                 case 0.5f:
-                    Output("It's not very effectivve...");
+                    HelperFunctions.Log("It's not very effectivve...");
                     break;
                 case 2f:
                 case 4f:
-                    Output("It's super effective!");
+                    HelperFunctions.Log("It's super effective!");
                     break;
             }
 
             float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f) * power * atk / def) / 50f) + 2f;
 
             baseDamage *= moveAttributeDamageMultiplier;
+            baseDamage *= stabBonus;
 
-            int damage = Mathf.CeilToInt(baseDamage);
+            int damage = Mathf.RoundToInt(baseDamage);
 
             if (attacker.IsAlive())
             {
@@ -67,13 +68,13 @@ public class EntityAttackEntityCommand : ICommand
 
                 float percentDamage = (damage / (float)defender.Health) * 100f;
 
-                Output($"The opposing {defender.Name} lost {percentDamage}% of its health!");
+                HelperFunctions.Log($"The opposing {defender.Name} lost {Mathf.RoundToInt(percentDamage)}% of its health!");
+
+                if (!defender.IsAlive())
+                {
+                    HelperFunctions.Log($"The opposing {defender.Name} fainted!");
+                }
             }
         }
-    }
-
-    public void Output(string message)
-    {
-        Debug.Log(message);
     }
 }

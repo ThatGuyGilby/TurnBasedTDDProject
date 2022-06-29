@@ -7,6 +7,11 @@ using UnityEngine;
 public class Battle : IInvoker
 {
     private BattleData battleData;
+
+    #region Properties
+    public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
+    #endregion Properties
+
     public void QueueCommand(ICommand command)
     {
         battleData.queuedCommands.Add(command);

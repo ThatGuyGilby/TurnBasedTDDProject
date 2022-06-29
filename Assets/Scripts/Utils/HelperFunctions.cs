@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class HelperFunctions
 {
+    public static void Log(string message)
+    {
+        Debug.Log(message);
+    }
+
     #region Data Helper Functions
     public static Dictionary<string, SpeciesData> speciesDataDictionary;
     public static Dictionary<string, MoveData> moveDataDictionary;

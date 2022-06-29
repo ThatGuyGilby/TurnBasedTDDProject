@@ -88,6 +88,32 @@ public class Entity
         return multiplier;
     }
 
+
+    public float GetSTABMultiplier(string attributeString)
+    {
+        float multiplier = 1f;
+
+        AttributeData moveAttribute = HelperFunctions.AttributeDataFromString(attributeString);
+
+        List<AttributeData> attributeDatas = new List<AttributeData>();
+
+        foreach (var item in entityData.speciesData.attributeKeys)
+        {
+            attributeDatas.Add(HelperFunctions.AttributeDataFromString(item));
+        }
+
+        foreach (var item in attributeDatas)
+        {
+            if (item.name == moveAttribute.name)
+            {
+                multiplier = 1.5f;
+            }
+        }
+
+        return multiplier;
+    }
+
+
     private int TempCalculateStat(int _base, int _minimumValue, int _additionalBonus = 0)
     {
         return CalculateStat(_base, Constants.DUMMY_IV, Constants.DUMMY_EV, _minimumValue, Constants.DUMMY_NATURE, _additionalBonus);
@@ -109,8 +135,13 @@ public class Entity
 
         if (entityData.currentHealth <= 0)
         {
-            entityData.alive = false;
-            entityData.currentHealth = 0;
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        entityData.alive = false;
+        entityData.currentHealth = 0;
     }
 }
