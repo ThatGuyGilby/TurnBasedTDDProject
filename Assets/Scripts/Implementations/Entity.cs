@@ -7,6 +7,18 @@ public class Entity
 {
     private EntityData entityData;
 
+    #region Properties
+    public string Name => entityData.nickname;
+    public int Health => entityData.health;
+    public int CurrentHealth => entityData.currentHealth;
+    public int Level => entityData.level;
+    public int Attack => entityData.attack;
+    public int Defence => entityData.defence;
+    public int SpecialAttack => entityData.specialAttack;
+    public int SpecialDefence => entityData.specialDefence;
+    public int Speed => entityData.speed;
+    #endregion Properties
+
     public Entity(EntityData entityData)
     {
         this.entityData = entityData;
@@ -31,16 +43,6 @@ public class Entity
         entityData.speed = TempCalculateStat(entityData.speciesData.baseSpeed, Constants.OTHER_STAT_MINIMUM_VALUE);
     }
 
-    public string Name => entityData.nickname;
-
-    public int Health => entityData.health;
-    public int Level => entityData.level;
-    public int Attack => entityData.attack;
-    public int Defence => entityData.defence;
-    public int SpecialAttack => entityData.specialAttack;
-    public int SpecialDefence => entityData.specialDefence;
-    public int Speed => entityData.speed;
-
     public void SetLevel(int level)
     {
         entityData.level = level;
@@ -51,6 +53,7 @@ public class Entity
     {
         return entityData.alive;
     }
+
     public float GetIncomingMultiplier(string attributeString)
     {
         float multiplier = 1f;

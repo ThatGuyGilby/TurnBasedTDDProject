@@ -24,19 +24,56 @@ public class EntityAttackEntityCommand : ICommand
         // weather bonus
         // random roll
         int power = moveData.power;
-        int atk = attacker.Attack;
-        int def = defender.Defence;
+        int atk = 0;
+        int def = 0;
 
-        float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f) * power * atk / def) / 50f) + 2f;
+        Output($"{attacker.Name} used {moveData.name}!");
 
-        baseDamage *= moveAttributeDamageMultiplier;
-
-        int damage = Mathf.CeilToInt(baseDamage);
-
-        if (attacker.IsAlive())
+        if (moveData.preset == "Physical")
         {
-            Debug.Log($"{defender.Name} took {damage} damage from {attacker.Name}'s {moveData.name}");
-            defender.TakeDamage(damage);
+            atk = attacker.Attack;
+            def = defender.Defence;
         }
+
+        if (moveData.preset == "Special")
+        {
+            atk = attacker.SpecialAttack;
+            def = defender.SpecialDefence;
+        }
+
+        if (moveData.preset == "Special" || moveData.preset == "Physical")
+        {
+            switch (moveAttributeDamageMultiplier)
+            {
+                case 0.25f:
+                case 0.5f:
+                    Output("It's not very effectivve...");
+                    break;
+                case 2f:
+                case 4f:
+                    Output("It's super effective!");
+                    break;
+            }
+
+            float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f) * power * atk / def) / 50f) + 2f;
+
+            baseDamage *= moveAttributeDamageMultiplier;
+
+            int damage = Mathf.CeilToInt(baseDamage);
+
+            if (attacker.IsAlive())
+            {
+                defender.TakeDamage(damage);
+
+                float percentDamage = (damage / (float)defender.Health) * 100f;
+
+                Output($"The opposing {defender.Name} lost {percentDamage}% of its health!)");
+            }
+        }
+    }
+
+    public void Output(string message)
+    {
+        Debug.Log(message);
     }
 }

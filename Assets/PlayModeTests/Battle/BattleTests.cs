@@ -23,18 +23,16 @@ public class BattleTests
     public void BattleEntityAttacksEntityInitialized()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
+        charmander.Initialize();
+
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
+        bulbasaur.Initialize();
 
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
-
         battle.Initialize();
 
-        ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.TACKLE);
+        ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.FLAMETHROWER);
         battle.QueueCommand(playerAttackEnemyCommand);
-
-        ICommand enemyAttackPlayerCommand = new EntityAttackEntityCommand(bulbasaur, charmander, MoveKey.TACKLE);
-        battle.QueueCommand(enemyAttackPlayerCommand);
-
         battle.ExecuteQueuedCommands();
 
         Assert.IsTrue(battle.IsInitialized);

@@ -4,5 +4,7 @@ using UnityEngine;
 
 public enum MoveKey
 {
-    TACKLE
+    TACKLE,
+    SWIFT,
+    FLAMETHROWER
 }
