@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class EntityAttackEntityCommand : ICommand
 {
+    #region Public Fields
+
     public Entity attacker;
     public Entity defender;
     public MoveKey moveKey;
+
+    #endregion Public Fields
+
+    #region Public Constructors
 
     public EntityAttackEntityCommand(Entity attacker, Entity defender, MoveKey moveKey)
     {
@@ -12,6 +18,10 @@ public class EntityAttackEntityCommand : ICommand
         this.defender = defender;
         this.moveKey = moveKey;
     }
+
+    #endregion Public Constructors
+
+    #region Public Methods
 
     public void Execute()
     {
@@ -47,6 +57,7 @@ public class EntityAttackEntityCommand : ICommand
                 case 0.5f:
                     HelperFunctions.Log("It's not very effectivve...");
                     break;
+
                 case 2f:
                 case 4f:
                     HelperFunctions.Log("It's super effective!");
@@ -75,4 +86,6 @@ public class EntityAttackEntityCommand : ICommand
             }
         }
     }
+
+    #endregion Public Methods
 }

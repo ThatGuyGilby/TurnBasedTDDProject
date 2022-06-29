@@ -2,13 +2,7 @@ using NUnit.Framework;
 
 public class EntityStatCalculationTests
 {
-    [Test]
-    public void EntityHealthCalculatedCorrectly()
-    {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
-
-        Assert.AreEqual(282, entity.Health);
-    }
+    #region Public Methods
 
     [Test]
     public void EntityAttackCalculatedCorrectly()
@@ -24,6 +18,14 @@ public class EntityStatCalculationTests
         Entity entity = new EntityBuilder().WithLevel(100).Build();
 
         Assert.AreEqual(185, entity.Defence);
+    }
+
+    [Test]
+    public void EntityHealthCalculatedCorrectly()
+    {
+        Entity entity = new EntityBuilder().WithLevel(100).Build();
+
+        Assert.AreEqual(282, entity.Health);
     }
 
     [Test]
@@ -49,4 +51,6 @@ public class EntityStatCalculationTests
 
         Assert.AreEqual(229, entity.Speed);
     }
+
+    #endregion Public Methods
 }

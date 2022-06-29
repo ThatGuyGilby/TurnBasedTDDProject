@@ -2,13 +2,14 @@ using System.Collections.Generic;
 
 public class BattleDataBuilder : IBuilder<BattleData>
 {
-    private List<Entity> playerEntities;
-    private List<Entity> enemyEntities;
+    #region Private Fields
 
-    public BattleData Build()
-    {
-        return new BattleData(playerEntities, enemyEntities);
-    }
+    private List<Entity> enemyEntities;
+    private List<Entity> playerEntities;
+
+    #endregion Private Fields
+
+    #region Public Constructors
 
     public BattleDataBuilder()
     {
@@ -16,9 +17,18 @@ public class BattleDataBuilder : IBuilder<BattleData>
         this.enemyEntities = new List<Entity>();
     }
 
-    public BattleDataBuilder WithPlayerEntity(Entity entity)
+    #endregion Public Constructors
+
+    #region Public Methods
+
+    public BattleData Build()
     {
-        playerEntities.Add(entity);
+        return new BattleData(playerEntities, enemyEntities);
+    }
+
+    public BattleDataBuilder WithEnemyEntities(List<Entity> entities)
+    {
+        enemyEntities.AddRange(entities);
         return this;
     }
 
@@ -34,9 +44,11 @@ public class BattleDataBuilder : IBuilder<BattleData>
         return this;
     }
 
-    public BattleDataBuilder WithEnemyEntities(List<Entity> entities)
+    public BattleDataBuilder WithPlayerEntity(Entity entity)
     {
-        enemyEntities.AddRange(entities);
+        playerEntities.Add(entity);
         return this;
     }
+
+    #endregion Public Methods
 }

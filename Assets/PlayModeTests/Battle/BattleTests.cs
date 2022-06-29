@@ -2,6 +2,8 @@ using NUnit.Framework;
 
 public class BattleTests
 {
+    #region Public Methods
+
     [Test]
     public void BattleIsInitialized()
     {
@@ -34,9 +36,5 @@ public class BattleTests
         Assert.IsFalse(battle.ActiveEnemyEntity.IsAlive());
     }
 
-    [Test]
-    public void Ttt()
-    {
-        //HelperFunctions.OutputDummyData();
-    }
+    #endregion Public Methods
 }

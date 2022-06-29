@@ -2,9 +2,26 @@ using System.Collections.Generic;
 
 public class EntityDataBuilder : IBuilder<EntityData>
 {
-    private string nickname;
+    #region Private Fields
+
     private int level;
+    private string nickname;
     private SpeciesKey speciesKey;
+
+    #endregion Private Fields
+
+    #region Public Constructors
+
+    public EntityDataBuilder()
+    {
+        this.nickname = "";
+        this.level = 1;
+        this.speciesKey = SpeciesKey.CHARMANDER;
+    }
+
+    #endregion Public Constructors
+
+    #region Public Methods
 
     public EntityData Build()
     {
@@ -22,11 +39,10 @@ public class EntityDataBuilder : IBuilder<EntityData>
         return new EntityData(nickname, level, speciesKey, speciesData, moveslotDatas);
     }
 
-    public EntityDataBuilder()
+    public EntityDataBuilder WithLevel(int level)
     {
-        this.nickname = "";
-        this.level = 1;
-        this.speciesKey = SpeciesKey.CHARMANDER;
+        this.level = level;
+        return this;
     }
 
     public EntityDataBuilder WithNickname(string nickname)
@@ -35,15 +51,11 @@ public class EntityDataBuilder : IBuilder<EntityData>
         return this;
     }
 
-    public EntityDataBuilder WithLevel(int level)
-    {
-        this.level = level;
-        return this;
-    }
-
     public EntityDataBuilder WithSpecies(SpeciesKey speciesKey)
     {
         this.speciesKey = speciesKey;
         return this;
     }
+
+    #endregion Public Methods
 }

@@ -1,5 +1,10 @@
 public interface IInvoker
 {
-    public abstract void QueueCommand(ICommand command);
+    #region Public Methods
+
     public abstract void ExecuteQueuedCommands();
+
+    public abstract void QueueCommand(ICommand command);
+
+    #endregion Public Methods
 }

@@ -1,15 +1,14 @@
 public class EntityBuilder : IBuilder<Entity>
 {
-    private string nickname;
+    #region Private Fields
+
     private int level;
+    private string nickname;
     private SpeciesKey speciesKey;
 
-    public Entity Build()
-    {
-        EntityData entityData = new EntityDataBuilder().WithNickname(nickname).WithLevel(level).WithSpecies(speciesKey).Build();
+    #endregion Private Fields
 
-        return new Entity(entityData);
-    }
+    #region Public Constructors
 
     public EntityBuilder()
     {
@@ -18,14 +17,26 @@ public class EntityBuilder : IBuilder<Entity>
         this.speciesKey = SpeciesKey.CHARMANDER;
     }
 
-    public EntityBuilder WithNickname(string nickname)
+    #endregion Public Constructors
+
+    #region Public Methods
+
+    public Entity Build()
     {
-        this.nickname = nickname;
-        return this;
+        EntityData entityData = new EntityDataBuilder().WithNickname(nickname).WithLevel(level).WithSpecies(speciesKey).Build();
+
+        return new Entity(entityData);
     }
+
     public EntityBuilder WithLevel(int level)
     {
         this.level = level;
+        return this;
+    }
+
+    public EntityBuilder WithNickname(string nickname)
+    {
+        this.nickname = nickname;
         return this;
     }
 
@@ -34,4 +45,6 @@ public class EntityBuilder : IBuilder<Entity>
         this.speciesKey = speciesKey;
         return this;
     }
+
+    #endregion Public Methods
 }

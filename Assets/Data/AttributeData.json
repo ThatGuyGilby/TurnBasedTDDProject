@@ -73,7 +73,7 @@
   },
   {
     "name": "Bug",
-    "resistances": [ "Fighting", "Grass", "Ground"],
+    "resistances": [ "Fighting", "Grass", "Ground" ],
     "weaknesses": [ "Fire", "Flying", "Rock" ],
     "immunities": []
   },

@@ -6,6 +6,7 @@ using UnityEngine;
 public class HelperFunctions
 {
     #region Logging
+
     public static void Log(string message)
     {
         Debug.Log(message);
@@ -15,61 +16,14 @@ public class HelperFunctions
     {
         Debug.LogWarning(message);
     }
+
     #endregion Logging
 
     #region Data Helper Functions
-    public static Dictionary<string, SpeciesData> speciesDataDictionary;
-    public static Dictionary<string, MoveData> moveDataDictionary;
+
     public static Dictionary<string, AttributeData> attributeDataDictionary;
-
-    public static SpeciesData SpeciesDataFromSpeciesKey(SpeciesKey speciesKey)
-    {
-        if (speciesDataDictionary == null)
-        {
-            LoadSpeciesDataDictionary();
-        }
-
-        string keyString = speciesKey.ToString();
-
-        if (speciesDataDictionary.ContainsKey((keyString)))
-        {
-            return speciesDataDictionary[keyString];
-        }
-        else
-        {
-            throw new System.Exception("The given key has no entry in the Dictionary");
-        }
-    }
-
-    public static MoveData MoveDataFromMoveKey(MoveKey moveKey)
-    {
-        if (moveDataDictionary == null)
-        {
-            LoadMoveDataDictionary();
-        }
-
-        string keyString = moveKey.ToString();
-
-        if (moveDataDictionary.ContainsKey((keyString)))
-        {
-            return moveDataDictionary[keyString];
-        }
-        else
-        {
-            throw new System.Exception("The given key has no entry in the Dictionary");
-        }
-    }
-
-    public static void OutputDummyData()
-    {
-        SpeciesData speciesData = SpeciesDataFromSpeciesKey(SpeciesKey.CHARMANDER);
-        speciesData.speciesMoveLearnData = new List<KeyValuePair<string, int>>();
-        speciesData.speciesMoveLearnData.Add(new KeyValuePair<string, int>("Flamethrower", 5));
-
-        string output = JsonConvert.SerializeObject(speciesData);
-
-        Debug.Log(output);
-    }
+    public static Dictionary<string, MoveData> moveDataDictionary;
+    public static Dictionary<string, SpeciesData> speciesDataDictionary;
 
     public static AttributeData AttributeDataFromAttributeKey(AttributeKey attributeKey)
     {
@@ -109,21 +63,70 @@ public class HelperFunctions
         }
     }
 
-    private static void LoadSpeciesDataDictionary()
+    public static MoveData MoveDataFromMoveKey(MoveKey moveKey)
     {
-        List<SpeciesData> speciesDatas;
-
-        using (StreamReader r = new StreamReader(Constants.SPECIES_DATA_PATH))
+        if (moveDataDictionary == null)
         {
-            string json = r.ReadToEnd();
-            speciesDatas = JsonConvert.DeserializeObject<List<SpeciesData>>(json);
+            LoadMoveDataDictionary();
         }
 
-        speciesDataDictionary = new Dictionary<string, SpeciesData>();
+        string keyString = moveKey.ToString();
 
-        foreach (var speciesData in speciesDatas)
+        if (moveDataDictionary.ContainsKey((keyString)))
         {
-            speciesDataDictionary.Add(speciesData.name.ToUpper(), speciesData);
+            return moveDataDictionary[keyString];
+        }
+        else
+        {
+            throw new System.Exception("The given key has no entry in the Dictionary");
+        }
+    }
+
+    public static void OutputDummyData()
+    {
+        SpeciesData speciesData = SpeciesDataFromSpeciesKey(SpeciesKey.CHARMANDER);
+        speciesData.speciesMoveLearnData = new List<KeyValuePair<string, int>>();
+        speciesData.speciesMoveLearnData.Add(new KeyValuePair<string, int>("Flamethrower", 5));
+
+        string output = JsonConvert.SerializeObject(speciesData);
+
+        Debug.Log(output);
+    }
+
+    public static SpeciesData SpeciesDataFromSpeciesKey(SpeciesKey speciesKey)
+    {
+        if (speciesDataDictionary == null)
+        {
+            LoadSpeciesDataDictionary();
+        }
+
+        string keyString = speciesKey.ToString();
+
+        if (speciesDataDictionary.ContainsKey((keyString)))
+        {
+            return speciesDataDictionary[keyString];
+        }
+        else
+        {
+            throw new System.Exception("The given key has no entry in the Dictionary");
+        }
+    }
+
+    private static void LoadAttributeDataDictionary()
+    {
+        List<AttributeData> attributeDatas;
+
+        using (StreamReader r = new StreamReader(Constants.ATTRIBUTE_DATA_PATH))
+        {
+            string json = r.ReadToEnd();
+            attributeDatas = JsonConvert.DeserializeObject<List<AttributeData>>(json);
+        }
+
+        attributeDataDictionary = new Dictionary<string, AttributeData>();
+
+        foreach (var attributeData in attributeDatas)
+        {
+            attributeDataDictionary.Add(attributeData.name.ToUpper(), attributeData);
         }
     }
 
@@ -145,22 +148,23 @@ public class HelperFunctions
         }
     }
 
-    private static void LoadAttributeDataDictionary()
+    private static void LoadSpeciesDataDictionary()
     {
-        List<AttributeData> attributeDatas;
+        List<SpeciesData> speciesDatas;
 
-        using (StreamReader r = new StreamReader(Constants.ATTRIBUTE_DATA_PATH))
+        using (StreamReader r = new StreamReader(Constants.SPECIES_DATA_PATH))
         {
             string json = r.ReadToEnd();
-            attributeDatas = JsonConvert.DeserializeObject<List<AttributeData>>(json);
+            speciesDatas = JsonConvert.DeserializeObject<List<SpeciesData>>(json);
         }
 
-        attributeDataDictionary = new Dictionary<string, AttributeData>();
+        speciesDataDictionary = new Dictionary<string, SpeciesData>();
 
-        foreach (var attributeData in attributeDatas)
+        foreach (var speciesData in speciesDatas)
         {
-            attributeDataDictionary.Add(attributeData.name.ToUpper(), attributeData);
+            speciesDataDictionary.Add(speciesData.name.ToUpper(), speciesData);
         }
     }
+
     #endregion Data Helper Functions
 }

@@ -2,16 +2,34 @@ using System.Collections.Generic;
 
 public class Battle : IInvoker
 {
+    #region Private Fields
+
     private BattleData battleData;
 
+    #endregion Private Fields
+
     #region Properties
+
     public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
+
     #endregion Properties
 
-    public void QueueCommand(ICommand command)
+    #region Public Constructors
+
+    public Battle(BattleData battleData)
     {
-        battleData.queuedCommands.Add(command);
+        this.battleData = battleData;
     }
+
+    #endregion Public Constructors
+
+    #region Public Properties
+
+    public bool IsInitialized { get; private set; }
+
+    #endregion Public Properties
+
+    #region Public Methods
 
     public void ExecuteQueuedCommands()
     {
@@ -23,13 +41,6 @@ public class Battle : IInvoker
 
         battleData.queuedCommands = new List<ICommand>();
     }
-
-    public Battle(BattleData battleData)
-    {
-        this.battleData = battleData;
-    }
-
-    public bool IsInitialized { get; private set; }
 
     public void Initialize()
     {
@@ -48,9 +59,20 @@ public class Battle : IInvoker
         IsInitialized = true;
     }
 
+    public void QueueCommand(ICommand command)
+    {
+        battleData.queuedCommands.Add(command);
+    }
+
+    #endregion Public Methods
+
+    #region Private Methods
+
     private void SetActiveEntities()
     {
         battleData.activePlayerEntity = battleData.playerEntities[0];
         battleData.activeEnemyEntity = battleData.enemyEntities[0];
     }
+
+    #endregion Private Methods
 }

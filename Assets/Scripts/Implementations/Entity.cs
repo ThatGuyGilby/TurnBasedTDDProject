@@ -3,19 +3,27 @@ using UnityEngine;
 
 public class Entity
 {
+    #region Private Fields
+
     private EntityData entityData;
 
+    #endregion Private Fields
+
     #region Properties
-    public string Name => entityData.nickname;
-    public int Health => entityData.health;
-    public int CurrentHealth => entityData.currentHealth;
-    public int Level => entityData.level;
+
     public int Attack => entityData.attack;
+    public int CurrentHealth => entityData.currentHealth;
     public int Defence => entityData.defence;
+    public int Health => entityData.health;
+    public int Level => entityData.level;
+    public string Name => entityData.nickname;
     public int SpecialAttack => entityData.specialAttack;
     public int SpecialDefence => entityData.specialDefence;
     public int Speed => entityData.speed;
+
     #endregion Properties
+
+    #region Public Constructors
 
     public Entity(EntityData entityData)
     {
@@ -23,33 +31,14 @@ public class Entity
         Initialize();
     }
 
-    public void Initialize()
-    {
-        CalculateStats();
+    #endregion Public Constructors
 
-        entityData.currentHealth = entityData.health;
-        entityData.alive = true;
-    }
+    #region Public Methods
 
-    private void CalculateStats()
+    public void Die()
     {
-        entityData.health = TempCalculateStat(entityData.speciesData.baseHealth, Constants.HP_MINIMUM_VALUE, entityData.level);
-        entityData.attack = TempCalculateStat(entityData.speciesData.baseAttack, Constants.OTHER_STAT_MINIMUM_VALUE);
-        entityData.defence = TempCalculateStat(entityData.speciesData.baseDefence, Constants.OTHER_STAT_MINIMUM_VALUE);
-        entityData.specialAttack = TempCalculateStat(entityData.speciesData.baseSpecialAttack, Constants.OTHER_STAT_MINIMUM_VALUE);
-        entityData.specialDefence = TempCalculateStat(entityData.speciesData.baseSpecialDefence, Constants.OTHER_STAT_MINIMUM_VALUE);
-        entityData.speed = TempCalculateStat(entityData.speciesData.baseSpeed, Constants.OTHER_STAT_MINIMUM_VALUE);
-    }
-
-    public void SetLevel(int level)
-    {
-        entityData.level = level;
-        CalculateStats();
-    }
-
-    public bool IsAlive()
-    {
-        return entityData.alive;
+        entityData.alive = false;
+        entityData.currentHealth = 0;
     }
 
     public float GetIncomingMultiplier(string attributeString)
@@ -86,7 +75,6 @@ public class Entity
         return multiplier;
     }
 
-
     public float GetSTABMultiplier(string attributeString)
     {
         float multiplier = 1f;
@@ -111,19 +99,22 @@ public class Entity
         return multiplier;
     }
 
-
-    private int TempCalculateStat(int _base, int _minimumValue, int _additionalBonus = 0)
+    public void Initialize()
     {
-        return CalculateStat(_base, Constants.DUMMY_IV, Constants.DUMMY_EV, _minimumValue, Constants.DUMMY_NATURE, _additionalBonus);
+        CalculateStats();
+
+        entityData.currentHealth = entityData.health;
+        entityData.alive = true;
     }
 
-    private int CalculateStat(int _base, int _iv, int _ev, int _minimumValue, float _natureMultiplier, int _additionalBonus = 0)
+    public bool IsAlive()
     {
-        return (int)((Mathf.FloorToInt(0.01f * (2f * _base + _iv + (0.25f * _ev)) * entityData.level) + _additionalBonus + _minimumValue) * _natureMultiplier);
+        return entityData.alive;
     }
 
-    public void Update()
+    public void SetLevel(int level)
     {
+        entityData.level = level;
         CalculateStats();
     }
 
@@ -139,9 +130,34 @@ public class Entity
         }
     }
 
-    public void Die()
+    public void Update()
     {
-        entityData.alive = false;
-        entityData.currentHealth = 0;
+        CalculateStats();
     }
+
+    #endregion Public Methods
+
+    #region Private Methods
+
+    private int CalculateStat(int _base, int _iv, int _ev, int _minimumValue, float _natureMultiplier, int _additionalBonus = 0)
+    {
+        return (int)((Mathf.FloorToInt(0.01f * (2f * _base + _iv + (0.25f * _ev)) * entityData.level) + _additionalBonus + _minimumValue) * _natureMultiplier);
+    }
+
+    private void CalculateStats()
+    {
+        entityData.health = TempCalculateStat(entityData.speciesData.baseHealth, Constants.HP_MINIMUM_VALUE, entityData.level);
+        entityData.attack = TempCalculateStat(entityData.speciesData.baseAttack, Constants.OTHER_STAT_MINIMUM_VALUE);
+        entityData.defence = TempCalculateStat(entityData.speciesData.baseDefence, Constants.OTHER_STAT_MINIMUM_VALUE);
+        entityData.specialAttack = TempCalculateStat(entityData.speciesData.baseSpecialAttack, Constants.OTHER_STAT_MINIMUM_VALUE);
+        entityData.specialDefence = TempCalculateStat(entityData.speciesData.baseSpecialDefence, Constants.OTHER_STAT_MINIMUM_VALUE);
+        entityData.speed = TempCalculateStat(entityData.speciesData.baseSpeed, Constants.OTHER_STAT_MINIMUM_VALUE);
+    }
+
+    private int TempCalculateStat(int _base, int _minimumValue, int _additionalBonus = 0)
+    {
+        return CalculateStat(_base, Constants.DUMMY_IV, Constants.DUMMY_EV, _minimumValue, Constants.DUMMY_NATURE, _additionalBonus);
+    }
+
+    #endregion Private Methods
 }

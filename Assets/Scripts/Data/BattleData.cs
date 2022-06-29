@@ -2,14 +2,18 @@ using System.Collections.Generic;
 
 public class BattleData
 {
-    public List<Entity> playerEntities;
-    public List<Entity> enemyEntities;
+    #region Public Fields
 
-    public Entity activePlayerEntity;
     public Entity activeEnemyEntity;
-
-    public List<ICommand> queuedCommands;
+    public Entity activePlayerEntity;
+    public List<Entity> enemyEntities;
     public List<ICommand> executedCommands;
+    public List<Entity> playerEntities;
+    public List<ICommand> queuedCommands;
+
+    #endregion Public Fields
+
+    #region Public Constructors
 
     public BattleData(List<Entity> playerEntities, List<Entity> enemyEntities)
     {
@@ -19,4 +23,6 @@ public class BattleData
         queuedCommands = new List<ICommand>();
         executedCommands = new List<ICommand>();
     }
+
+    #endregion Public Constructors
 }

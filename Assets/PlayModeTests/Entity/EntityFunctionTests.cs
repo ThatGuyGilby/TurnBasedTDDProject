@@ -2,18 +2,16 @@ using NUnit.Framework;
 
 public class EntityFunctionTests
 {
-    [TestCase(SpeciesKey.CHARMANDER, "Fire", 1.5f)]
-    [TestCase(SpeciesKey.CHARMANDER, "Grass", 1f)]
-    [TestCase(SpeciesKey.BULBASAUR, "Grass", 1.5f)]
-    [TestCase(SpeciesKey.BULBASAUR, "Water", 1f)]
-    public void EntityGetSTABMMultiplier(SpeciesKey speciesKey, string attributeString, float expectedMultiplier)
+    #region Public Methods
+
+    [Test]
+    public void EntityDie()
     {
-        Entity entity = new EntityBuilder().WithSpecies(speciesKey).Build();
+        Entity entity = new EntityBuilder().Build();
 
-        float actual = entity.GetSTABMultiplier(attributeString);
-        float expected = expectedMultiplier;
+        entity.Die();
 
-        Assert.AreEqual(expected, actual);
+        Assert.IsFalse(entity.IsAlive());
     }
 
     [TestCase(SpeciesKey.CHARMANDER, "Fire", 0.5f)]
@@ -28,6 +26,32 @@ public class EntityFunctionTests
         float expected = expectedMultiplier;
 
         Assert.AreEqual(expected, actual);
+    }
+
+    [TestCase(SpeciesKey.CHARMANDER, "Fire", 1.5f)]
+    [TestCase(SpeciesKey.CHARMANDER, "Grass", 1f)]
+    [TestCase(SpeciesKey.BULBASAUR, "Grass", 1.5f)]
+    [TestCase(SpeciesKey.BULBASAUR, "Water", 1f)]
+    public void EntityGetSTABMMultiplier(SpeciesKey speciesKey, string attributeString, float expectedMultiplier)
+    {
+        Entity entity = new EntityBuilder().WithSpecies(speciesKey).Build();
+
+        float actual = entity.GetSTABMultiplier(attributeString);
+        float expected = expectedMultiplier;
+
+        Assert.AreEqual(expected, actual);
+    }
+
+    [Test]
+    public void EntityInitialize()
+    {
+        Entity entity = new EntityBuilder().Build();
+
+        entity.Die();
+
+        entity.Initialize();
+
+        Assert.IsTrue(entity.IsAlive());
     }
 
     [TestCase(5)]
@@ -62,25 +86,5 @@ public class EntityFunctionTests
         Assert.IsFalse(healthIncreased);
     }
 
-    [Test]
-    public void EntityDie()
-    {
-        Entity entity = new EntityBuilder().Build();
-
-        entity.Die();
-
-        Assert.IsFalse(entity.IsAlive());
-    }
-
-    [Test]
-    public void EntityInitialize()
-    {
-        Entity entity = new EntityBuilder().Build();
-
-        entity.Die();
-
-        entity.Initialize();
-
-        Assert.IsTrue(entity.IsAlive());
-    }
+    #endregion Public Methods
 }

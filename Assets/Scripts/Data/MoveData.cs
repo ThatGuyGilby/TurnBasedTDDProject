@@ -1,9 +1,13 @@
 public class MoveData
 {
-    public string name;
-    public int power;
-    public int maxUses;
-    public string preset;
+    #region Public Fields
+
     public int accuracy;
     public string attributeKey;
+    public int maxUses;
+    public string name;
+    public int power;
+    public string preset;
+
+    #endregion Public Fields
 }
