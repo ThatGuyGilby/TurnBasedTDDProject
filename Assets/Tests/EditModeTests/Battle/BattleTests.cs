@@ -6,7 +6,7 @@ public class BattleTests
     #region Public Methods
 
     [Test]
-    public void BattleIsInitialized()
+    public void BattleInitialize()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
@@ -19,7 +19,7 @@ public class BattleTests
     }
 
     [Test]
-    public void BattleIsInitializeEnemyAbovePartyLimit()
+    public void BattleInitializeEnemyAbovePartyLimit()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
@@ -32,7 +32,7 @@ public class BattleTests
     }
 
     [Test]
-    public void BattleIsInitializeEnemyNull()
+    public void BattleInitializeEnemyNull()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Battle battle = new BattleBuilder().WithPlayerEntity(charmander).Build();
@@ -43,7 +43,7 @@ public class BattleTests
     }
 
     [Test]
-    public void BattleIsInitializePlayerAbovePartyLimit()
+    public void BattleInitializePlayerAbovePartyLimit()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
@@ -56,7 +56,7 @@ public class BattleTests
     }
 
     [Test]
-    public void BattleIsInitializePlayerNull()
+    public void BattleInitializePlayerNull()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Battle battle = new BattleBuilder().WithEnemyEntity(charmander).Build();
