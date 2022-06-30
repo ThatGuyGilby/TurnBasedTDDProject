@@ -2,7 +2,7 @@ public class Constants
 {
     #region Public Fields
 
-    public const int DUMMY_EV = 252;
+    public const int DUMMY_EV = 0;
     public const int DUMMY_IV = 31;
     public const float DUMMY_NATURE = 1.0f;
     public const int HP_MINIMUM_VALUE = 10;

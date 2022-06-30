@@ -4,52 +4,52 @@ public class EntityDataTests
 {
     #region Public Methods
 
-    [Test]
-    public void EntityAttackCalculatedCorrectly()
+    [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 140)]
+    public int EntityAttackCalculatedCorrectly(int level, SpeciesKey speciesKey)
     {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
+        Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();
 
-        Assert.AreEqual(203, entity.Attack);
+        return entity.Attack;
     }
 
-    [Test]
-    public void EntityDefenceCalculatedCorrectly()
+    [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 122)]
+    public int EntityDefenceCalculatedCorrectly(int level, SpeciesKey speciesKey)
     {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
+        Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();
 
-        Assert.AreEqual(185, entity.Defence);
+        return entity.Defence;
     }
 
-    [Test]
-    public void EntityHealthCalculatedCorrectly()
+    [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 219)]
+    public int EntityHealthCalculatedCorrectly(int level, SpeciesKey speciesKey)
     {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
+        Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();
 
-        Assert.AreEqual(282, entity.Health);
+        return entity.Health;
     }
 
-    [Test]
-    public void EntitySpecialAttackCalculatedCorrectly()
+    [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 156)]
+    public int EntitySpecialAttackCalculatedCorrectly(int level, SpeciesKey speciesKey)
     {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
+        Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();
 
-        Assert.AreEqual(219, entity.SpecialAttack);
+        return entity.SpecialAttack;
     }
 
-    [Test]
-    public void EntitySpecialDefenceCalculatedCorrectly()
+    [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 136)]
+    public int EntitySpecialDefenceCalculatedCorrectly(int level, SpeciesKey speciesKey)
     {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
+        Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();
 
-        Assert.AreEqual(199, entity.SpecialDefence);
+        return entity.SpecialDefence;
     }
 
-    [Test]
-    public void EntitySpeedCalculatedCorrectly()
+    [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 166)]
+    public int EntitySpeedCalculatedCorrectly(int level, SpeciesKey speciesKey)
     {
-        Entity entity = new EntityBuilder().WithLevel(100).Build();
+        Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();
 
-        Assert.AreEqual(229, entity.Speed);
+        return entity.Speed;
     }
 
     #endregion Public Methods
