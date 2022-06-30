@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 
-public class SpeciesData
+public class SpeciesData : DataSource
 {
     #region Public Fields
 
     public List<string> attributeKeys;
-    public string name;
     public List<KeyValuePair<string, int>> speciesMoveLearnData;
 
     #endregion Public Fields

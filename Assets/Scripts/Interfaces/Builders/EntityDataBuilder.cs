@@ -25,7 +25,8 @@ public class EntityDataBuilder : IBuilder<EntityData>
 
     public EntityData Build()
     {
-        SpeciesData speciesData = HelperFunctions.SpeciesDataFromSpeciesKey(speciesKey);
+        //SpeciesData speciesData = HelperFunctions.SpeciesDataFromSpeciesKey(speciesKey);
+        SpeciesData speciesData = HelperFunctions.speciesDataRepository.DataFromKey(speciesKey);
 
         if (nickname == "")
         {

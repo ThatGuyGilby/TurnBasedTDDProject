@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 
-public class AttributeData
+public class AttributeData : DataSource
 {
     #region Public Fields
 
     public List<string> immunities;
-    public string name;
     public List<string> resistances;
     public List<string> weaknesses;
 

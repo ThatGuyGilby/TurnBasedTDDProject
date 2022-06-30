@@ -45,13 +45,13 @@ public class Entity
     {
         float multiplier = 1f;
 
-        AttributeData incomingAttribute = HelperFunctions.AttributeDataFromString(attributeString);
+        AttributeData incomingAttribute = HelperFunctions.attributeDataRepository.DataFromString(attributeString);
 
         List<AttributeData> attributeDatas = new List<AttributeData>();
 
         foreach (var item in entityData.speciesData.attributeKeys)
         {
-            attributeDatas.Add(HelperFunctions.AttributeDataFromString(item));
+            attributeDatas.Add(HelperFunctions.attributeDataRepository.DataFromString(item));
         }
 
         foreach (var item in attributeDatas)
@@ -79,13 +79,13 @@ public class Entity
     {
         float multiplier = 1f;
 
-        AttributeData moveAttribute = HelperFunctions.AttributeDataFromString(attributeString);
+        AttributeData moveAttribute = HelperFunctions.attributeDataRepository.DataFromString(attributeString);
 
         List<AttributeData> attributeDatas = new List<AttributeData>();
 
         foreach (var item in entityData.speciesData.attributeKeys)
         {
-            attributeDatas.Add(HelperFunctions.AttributeDataFromString(item));
+            attributeDatas.Add(HelperFunctions.attributeDataRepository.DataFromString(item));
         }
 
         foreach (var item in attributeDatas)

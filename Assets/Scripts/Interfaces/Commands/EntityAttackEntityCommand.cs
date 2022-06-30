@@ -25,7 +25,7 @@ public class EntityAttackEntityCommand : ICommand
 
     public void Execute()
     {
-        MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
+        MoveData moveData = HelperFunctions.moveDataRepository.DataFromKey(moveKey);
 
         float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
         float stabBonus = attacker.GetSTABMultiplier(moveData.attributeKey);
