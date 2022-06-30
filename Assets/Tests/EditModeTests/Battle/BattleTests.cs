@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 
 public class BattleTests
 {
@@ -15,6 +16,54 @@ public class BattleTests
         battle.Initialize();
 
         Assert.IsTrue(battle.IsInitialized);
+    }
+
+    [Test]
+    public void BattleIsInitializeEnemyAbovePartyLimit()
+    {
+        Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
+        Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
+
+        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur, 7).WithPlayerEntity(charmander).Build();
+
+        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+
+        Assert.That(ex.Message, Is.EqualTo($"Invalid enemy party size: 7"));
+    }
+
+    [Test]
+    public void BattleIsInitializeEnemyNull()
+    {
+        Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
+        Battle battle = new BattleBuilder().WithPlayerEntity(charmander).Build();
+
+        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+
+        Assert.That(ex.Message, Is.EqualTo($"Invalid enemy party size: 0"));
+    }
+
+    [Test]
+    public void BattleIsInitializePlayerAbovePartyLimit()
+    {
+        Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
+        Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
+
+        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander, 7).Build();
+
+        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+
+        Assert.That(ex.Message, Is.EqualTo($"Invalid player party size: 7"));
+    }
+
+    [Test]
+    public void BattleIsInitializePlayerNull()
+    {
+        Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
+        Battle battle = new BattleBuilder().WithEnemyEntity(charmander).Build();
+
+        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+
+        Assert.That(ex.Message, Is.EqualTo($"Invalid player party size: 0"));
     }
 
     [Test]

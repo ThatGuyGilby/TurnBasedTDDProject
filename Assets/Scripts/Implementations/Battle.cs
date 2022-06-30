@@ -44,9 +44,14 @@ public class Battle : IInvoker
 
     public void Initialize()
     {
-        if (battleData.enemyEntities.Count == 0 || battleData.playerEntities.Count == 0)
+        if (battleData.enemyEntities.Count == 0 || battleData.enemyEntities.Count > Constants.MAX_PARTY_SIZE)
         {
-            return;
+            HelperFunctions.ThrowException($"Invalid enemy party size: {battleData.enemyEntities.Count}");
+        }
+
+        if (battleData.playerEntities.Count == 0 || battleData.playerEntities.Count > Constants.MAX_PARTY_SIZE)
+        {
+            HelperFunctions.ThrowException($"Invalid player party size: {battleData.playerEntities.Count}");
         }
 
         SetActiveEntities();

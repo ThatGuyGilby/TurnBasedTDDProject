@@ -34,9 +34,13 @@ public class BattleBuilder : IBuilder<Battle>
         return this;
     }
 
-    public BattleBuilder WithEnemyEntity(Entity entity)
+    public BattleBuilder WithEnemyEntity(Entity entity, int amountOfTimesToAdd = 1)
     {
-        enemyEntities.Add(entity);
+        for (int i = 0; i < amountOfTimesToAdd; i++)
+        {
+            enemyEntities.Add(entity);
+        }
+
         return this;
     }
 
@@ -46,9 +50,13 @@ public class BattleBuilder : IBuilder<Battle>
         return this;
     }
 
-    public BattleBuilder WithPlayerEntity(Entity entity)
+    public BattleBuilder WithPlayerEntity(Entity entity, int amountOfTimesToAdd = 1)
     {
-        playerEntities.Add(entity);
+        for (int i = 0; i < amountOfTimesToAdd; i++)
+        {
+            playerEntities.Add(entity);
+        }
+
         return this;
     }
 

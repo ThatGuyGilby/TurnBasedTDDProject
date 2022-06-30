@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
@@ -18,6 +19,15 @@ public class HelperFunctions
     }
 
     #endregion Logging
+
+    #region Public Methods
+
+    public static void ThrowException(string message)
+    {
+        throw new Exception(message);
+    }
+
+    #endregion Public Methods
 
     #region Data Helper Functions
 
@@ -40,7 +50,7 @@ public class HelperFunctions
         }
         else
         {
-            throw new System.Exception("The given key has no entry in the Dictionary");
+            throw new Exception("The given key has no entry in the Dictionary");
         }
     }
 
@@ -59,7 +69,7 @@ public class HelperFunctions
         }
         else
         {
-            throw new System.Exception("The given key has no entry in the Dictionary");
+            throw new Exception("The given key has no entry in the Dictionary");
         }
     }
 
@@ -78,7 +88,7 @@ public class HelperFunctions
         }
         else
         {
-            throw new System.Exception("The given key has no entry in the Dictionary");
+            throw new Exception("The given key has no entry in the Dictionary");
         }
     }
 
@@ -108,7 +118,7 @@ public class HelperFunctions
         }
         else
         {
-            throw new System.Exception("The given key has no entry in the Dictionary");
+            throw new Exception("The given key has no entry in the Dictionary");
         }
     }
 
