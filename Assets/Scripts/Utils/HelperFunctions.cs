@@ -28,12 +28,4 @@ public class HelperFunctions
     }
 
     #endregion Public Methods
-
-    #region Data Helper Functions
-
-    public static Repository<AttributeData> attributeDataRepository = new Repository<AttributeData>(Constants.ATTRIBUTE_DATA_PATH);
-    public static Repository<MoveData> moveDataRepository = new Repository<MoveData>(Constants.MOVE_DATA_PATH);
-    public static Repository<SpeciesData> speciesDataRepository = new Repository<SpeciesData>(Constants.SPECIES_DATA_PATH);
-
-    #endregion Data Helper Functions
 }

@@ -12,7 +12,7 @@ public class MoveslotData
     public MoveslotData(MoveKey moveKey)
     {
         this.moveKey = moveKey;
-        this.usesLeft = HelperFunctions.moveDataRepository.DataFromKey(moveKey).maxUses;
+        this.usesLeft = RepositoryManager.moveDataRepository.DataFromKey(moveKey).maxUses;
     }
 
     #endregion Public Constructors
