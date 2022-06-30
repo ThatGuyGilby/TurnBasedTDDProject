@@ -18,6 +18,11 @@ public class HelperFunctions
         //Debug.LogWarning(message);
     }
 
+    public static void SerializeObject(object obj)
+    {
+        Log(JsonConvert.SerializeObject(obj));
+    }
+
     #endregion Logging
 
     #region Public Methods

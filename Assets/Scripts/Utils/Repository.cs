@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
-using UnityEngine;
 
 public class Repository<T> where T : DataSource
 {
@@ -26,14 +24,14 @@ public class Repository<T> where T : DataSource
 
     #region Public Methods
 
-    public T DataFromKey(Enum attributeKey)
+    public T DataFromKey(Enum dataKey)
     {
         if (dataDictionary == null)
         {
             LoadDataDictionary();
         }
 
-        string keyString = attributeKey.ToString();
+        string keyString = dataKey.ToString();
 
         if (dataDictionary.ContainsKey((keyString)))
         {

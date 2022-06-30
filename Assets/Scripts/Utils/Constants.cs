@@ -27,6 +27,7 @@ public class Constants
     public const string ATTRIBUTE_DATA_PATH = "Assets/Data/AttributeData.json";
     public const string MOVE_DATA_PATH = "Assets/Data/MoveData.json";
     public const string SPECIES_DATA_PATH = "Assets/Data/SpeciesData.json";
+    public const string WEATHER_DATA_PATH = "Assets/Data/WeatherData.json";
 
     #endregion Data Constants
 }

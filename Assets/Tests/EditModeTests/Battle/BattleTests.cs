@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 public class BattleTests
 {
@@ -14,6 +15,11 @@ public class BattleTests
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
 
         battle.Initialize();
+
+        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).name);
+        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).powerBoostKeys.ToString());
+        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).powerReductionKeys.ToString());
+        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).specialDefenceBoostKeys.ToString());
 
         Assert.IsTrue(battle.IsInitialized);
     }

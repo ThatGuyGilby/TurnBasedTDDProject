@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Sun",
+    "powerBoostKeys": [ "Fire" ],
+    "powerReductionKeys": [ "Water" ],
+    "specialDefenceBoostKeys": []
+  }
+]
