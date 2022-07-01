@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Tackle",
+    "attributeKey": "Normal",
+    "power": 35,
+    "maxUses": 56,
+    "preset": "Physical",
+    "accuracy": 100
+  },
+  {
+    "name": "Swift",
+    "attributeKey": "Normal",
+    "power": 35,
+    "maxUses": 56,
+    "preset": "Special",
+    "accuracy": 100
+  },
+  {
+    "name": "Flamethrower",
+    "attributeKey": "Fire",
+    "power": 90,
+    "maxUses": 24,
+    "preset": "Special",
+    "accuracy": 100
+  }
+]

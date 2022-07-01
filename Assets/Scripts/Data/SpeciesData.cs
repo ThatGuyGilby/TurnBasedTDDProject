@@ -1,30 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class SpeciesData
+public class SpeciesData : DataSource
 {
-    public string name;
+    #region Public Fields
+
     public List<string> attributeKeys;
+    public List<KeyValuePair<string, int>> speciesMoveLearnData;
+
+    #endregion Public Fields
 
     #region Base Stats
-    public int baseHealth;
+
     public int baseAttack;
     public int baseDefence;
+    public int baseHealth;
     public int baseSpecialAttack;
     public int baseSpecialDefence;
     public int baseSpeed;
-    #endregion Base Stats
 
-    public SpeciesData(string name, int baseHealth, int baseAttack, int baseDefence, int baseSpecialAttack, int baseSpecialDefence, int baseSpeed, List<string> attributeKeys)
-    {
-        this.name = name;
-        this.baseHealth = baseHealth;
-        this.baseAttack = baseAttack;
-        this.baseDefence = baseDefence;
-        this.baseSpecialAttack = baseSpecialAttack;
-        this.baseSpecialDefence = baseSpecialDefence;
-        this.baseSpeed = baseSpeed;
-        this.attributeKeys = attributeKeys;
-    }
+    #endregion Base Stats
 }

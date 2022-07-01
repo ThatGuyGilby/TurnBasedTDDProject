@@ -1,25 +1,57 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Plastic.Newtonsoft.Json;
-using UnityEngine;
 
-public class Battle
+public class Battle : IInvoker
 {
+    #region Private Fields
+
     private BattleData battleData;
+
+    #endregion Private Fields
+
+    #region Properties
+
+    public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
+
+    #endregion Properties
+
+    #region Public Constructors
 
     public Battle(BattleData battleData)
     {
         this.battleData = battleData;
     }
 
+    #endregion Public Constructors
+
+    #region Public Properties
+
     public bool IsInitialized { get; private set; }
+
+    #endregion Public Properties
+
+    #region Public Methods
+
+    public void ExecuteQueuedCommands()
+    {
+        foreach (var item in battleData.queuedCommands)
+        {
+            item.Execute();
+            battleData.executedCommands.Add(item);
+        }
+
+        battleData.queuedCommands = new List<ICommand>();
+    }
 
     public void Initialize()
     {
-        if (battleData.enemyEntities.Count == 0 || battleData.playerEntities.Count == 0)
+        if (battleData.enemyEntities.Count == 0 || battleData.enemyEntities.Count > Constants.MAX_PARTY_SIZE)
         {
-            return;
+            HelperFunctions.ThrowException($"Invalid enemy party size: {battleData.enemyEntities.Count}");
+        }
+
+        if (battleData.playerEntities.Count == 0 || battleData.playerEntities.Count > Constants.MAX_PARTY_SIZE)
+        {
+            HelperFunctions.ThrowException($"Invalid player party size: {battleData.playerEntities.Count}");
         }
 
         SetActiveEntities();
@@ -32,49 +64,30 @@ public class Battle
         IsInitialized = true;
     }
 
+    public void QueueCommand(ICommand command)
+    {
+        battleData.queuedCommands.Add(command);
+    }
+
+    #endregion Public Methods
+
+    #region Private Methods
+
+    private void SendEntityIntoBattle(Entity entity, Entity other, ref Entity activeEntity)
+    {
+        EntitySentIntoBattle entitySentIntoBattle = new EntitySentIntoBattle(entity, other);
+        QueueCommand(entitySentIntoBattle);
+
+        activeEntity = entity;
+    }
+
     private void SetActiveEntities()
     {
-        battleData.activePlayerEntity = battleData.playerEntities[0];
-        battleData.activeEnemyEntity = battleData.enemyEntities[0];
+        SendEntityIntoBattle(battleData.playerEntities[0], battleData.activeEnemyEntity, ref battleData.activePlayerEntity);
+        SendEntityIntoBattle(battleData.enemyEntities[0], battleData.activePlayerEntity, ref battleData.activeEnemyEntity);
+
+        ExecuteQueuedCommands();
     }
 
-    public int EntityAttackEntity(Entity attacker, Entity defender, MoveKey moveKey)
-    {
-        MoveData moveData = HelperFunctions.MoveDataFromMoveKey(moveKey);
-
-        float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
-        // stab  bonus
-        // weather bonus
-        // random roll
-        int power = moveData.power;
-        int atk = attacker.Attack;
-        int def = defender.Defence;
-
-        float baseDamage = (((((2f * (float)attacker.Level) / 5f) + 2f)*power*atk/def)/50f)+2f;
-
-        baseDamage *= moveAttributeDamageMultiplier;
-
-        int damage = Mathf.CeilToInt(baseDamage);
-
-        if (attacker.IsAlive())
-        {
-            Debug.Log($"{defender.Name} took {damage} damage from {attacker.Name}'s {moveData.name}");
-            defender.TakeDamage(damage);
-            return damage;
-        }
-
-        return 0;
-    }
-
-    public void ProcessTurnData(List<TurnData> turnDatas)
-    {
-        List<TurnData> sortedList = turnDatas.OrderByDescending(o => o.attackerEntity.Speed).ToList();
-
-        // TODO: Speed ties
-
-        foreach(TurnData turnData in sortedList)
-        {
-            HelperFunctions.ProcessAttack(turnData, battleData);
-        }
-    }
+    #endregion Private Methods
 }

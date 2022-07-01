@@ -1,13 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class AttributeData
+public class AttributeData : DataSource
 {
-    public string name;
+    #region Public Fields
+
+    public List<string> immunities;
     public List<string> resistances;
     public List<string> weaknesses;
-    public List<string> immunities;
+
+    #endregion Public Fields
+
+    #region Public Constructors
 
     public AttributeData(string name, List<string> resistances, List<string> weaknesses, List<string> immunities)
     {
@@ -16,4 +19,6 @@ public class AttributeData
         this.weaknesses = weaknesses;
         this.immunities = immunities;
     }
+
+    #endregion Public Constructors
 }

@@ -1,18 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class BattleData
 {
-    public List<Entity> playerEntities;
-    public List<Entity> enemyEntities;
+    #region Public Fields
 
-    public Entity activePlayerEntity;
     public Entity activeEnemyEntity;
+    public Entity activePlayerEntity;
+    public List<Entity> enemyEntities;
+    public List<ICommand> executedCommands;
+    public List<Entity> playerEntities;
+    public List<ICommand> queuedCommands;
+
+    #endregion Public Fields
+
+    #region Public Constructors
 
     public BattleData(List<Entity> playerEntities, List<Entity> enemyEntities)
     {
         this.playerEntities = playerEntities;
         this.enemyEntities = enemyEntities;
+
+        queuedCommands = new List<ICommand>();
+        executedCommands = new List<ICommand>();
     }
+
+    #endregion Public Constructors
 }

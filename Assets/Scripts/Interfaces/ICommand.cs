@@ -1,8 +1,8 @@
-public interface IBuilder<T>
+public interface ICommand
 {
     #region Public Methods
 
-    public abstract T Build();
+    public abstract void Execute();
 
     #endregion Public Methods
 }
