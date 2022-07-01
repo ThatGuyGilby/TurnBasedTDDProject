@@ -44,6 +44,8 @@ public class Battle : IInvoker
 
     public void Initialize()
     {
+        HelperFunctions.Log($"{battleData.weatherData.weatherMessage}");
+
         if (battleData.enemyEntities.Count == 0 || battleData.enemyEntities.Count > Constants.MAX_PARTY_SIZE)
         {
             HelperFunctions.ThrowException($"Invalid enemy party size: {battleData.enemyEntities.Count}");

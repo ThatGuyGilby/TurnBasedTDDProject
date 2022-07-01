@@ -33,7 +33,7 @@ public class Repository<T> where T : DataSource
 
         string keyString = dataKey.ToString();
 
-        if (dataDictionary.ContainsKey((keyString)))
+        if (dataDictionary.ContainsKey(keyString))
         {
             return dataDictionary[keyString];
         }

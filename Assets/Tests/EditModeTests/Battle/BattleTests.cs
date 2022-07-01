@@ -12,14 +12,9 @@ public class BattleTests
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
 
-        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
+        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).WithWeatherKey(WeatherKey.SUN).Build();
 
         battle.Initialize();
-
-        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).name);
-        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).powerBoostKeys.ToString());
-        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).powerReductionKeys.ToString());
-        HelperFunctions.Log(RepositoryManager.weatherDataRepository.DataFromKey(WeatherKey.SUN).specialDefenceBoostKeys.ToString());
 
         Assert.IsTrue(battle.IsInitialized);
     }
