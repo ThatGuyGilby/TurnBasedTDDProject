@@ -1,7 +1,8 @@
 [
   {
     "name": "Charmander",
-    "attributeKeys": [ "Fire" ],
+    "primaryAttributeKey": "Fire",
+    "secondaryAttributeKey": "",
     "speciesMoveLearnData": [
       {
         "Key": "Flamethrower",
@@ -17,7 +18,8 @@
   },
   {
     "name": "Bulbasaur",
-    "attributeKeys": [ "Grass" ],
+    "primaryAttributeKey": "Grass",
+    "secondaryAttributeKey": "Poison",
     "speciesMoveLearnData": [
       {
         "Key": "Tackle",
