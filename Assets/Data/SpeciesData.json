@@ -9,6 +9,10 @@
         "Value": 1
       },
       {
+        "Key": "Ember",
+        "Value": 7
+      },
+      {
         "Key": "Fire Fang",
         "Value": 25
       },
@@ -50,8 +54,16 @@
         "Value": 1
       },
       {
+        "Key": "Vine Whip",
+        "Value": 3
+      },
+      {
         "Key": "Razor Leaf",
-        "Value": 5
+        "Value": 12
+      },
+      {
+        "Key": "Seed Bomb",
+        "Value": 18
       }
     ],
     "baseHealth": 45,

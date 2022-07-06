@@ -10,9 +10,10 @@ public class EntityDataTests
         return entity.Attack;
     }
 
-    [TestCase(5, SpeciesKey.CHARMANDER, ExpectedResult = 1)]
+    [TestCase(7, SpeciesKey.CHARMANDER, ExpectedResult = 2)]
     [TestCase(100, SpeciesKey.CHARMANDER, ExpectedResult = 4)]
-    [TestCase(5, SpeciesKey.BULBASAUR, ExpectedResult = 2)]
+    [TestCase(3, SpeciesKey.BULBASAUR, ExpectedResult = 2)]
+    [TestCase(1000, SpeciesKey.BULBASAUR, ExpectedResult = 4)]
     public int EntityCreatedWithMoves(int level, SpeciesKey speciesKey)
     {
         Entity entity = new EntityBuilder().WithLevel(level).WithSpecies(speciesKey).Build();

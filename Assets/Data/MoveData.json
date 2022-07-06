@@ -26,9 +26,9 @@
   {
     "name": "Razor Leaf",
     "attributeKey": "Grass",
-    "power": 90,
-    "maxUses": 24,
-    "preset": "Special",
+    "power": 55,
+    "maxUses": 40,
+    "preset": "Physical",
     "accuracy": 100
   },
   {
@@ -70,5 +70,29 @@
     "maxUses": 24,
     "preset": "Special",
     "accuracy": 85
+  },
+  {
+    "name": "Ember",
+    "attributeKey": "Fire",
+    "power": 40,
+    "maxUses": 40,
+    "preset": "Special",
+    "accuracy": 100
+  },
+  {
+    "name": "Vine Whip",
+    "attributeKey": "Grass",
+    "power": 45,
+    "maxUses": 40,
+    "preset": "Physical",
+    "accuracy": 100
+  },
+  {
+    "name": "Seed Bomb",
+    "attributeKey": "Grass",
+    "power": 80,
+    "maxUses": 24,
+    "preset": "Physical",
+    "accuracy": 100
   }
 ]

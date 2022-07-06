@@ -9,5 +9,8 @@ public enum MoveKey
     FLAME_BURST,
     SLASH,
     FIRE_SPIN,
-    INFERNO
+    INFERNO,
+    EMBER,
+    VINE_WHIP,
+    SEED_BOMB
 }
