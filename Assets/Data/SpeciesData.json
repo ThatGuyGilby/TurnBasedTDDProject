@@ -9,8 +9,28 @@
         "Value": 1
       },
       {
+        "Key": "Fire Fang",
+        "Value": 25
+      },
+      {
+        "Key": "Flame Burst",
+        "Value": 28
+      },
+      {
+        "Key": "Slash",
+        "Value": 34
+      },
+      {
         "Key": "Flamethrower",
-        "Value": 5
+        "Value": 37
+      },
+      {
+        "Key": "Fire Spin",
+        "Value": 43
+      },
+      {
+        "Key": "Inferno",
+        "Value": 46
       }
     ],
     "baseHealth": 39,

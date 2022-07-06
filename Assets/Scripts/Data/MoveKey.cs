@@ -4,5 +4,10 @@ public enum MoveKey
     TACKLE,
     SWIFT,
     FLAMETHROWER,
-    RAZOR_LEAF
+    RAZOR_LEAF,
+    FIRE_FANG,
+    FLAME_BURST,
+    SLASH,
+    FIRE_SPIN,
+    INFERNO
 }

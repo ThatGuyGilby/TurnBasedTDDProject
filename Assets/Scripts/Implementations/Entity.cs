@@ -3,27 +3,7 @@ using UnityEngine;
 
 public class Entity
 {
-    #region Private Fields
-
     private EntityData entityData;
-
-    #endregion Private Fields
-
-    #region Properties
-
-    public int Attack => entityData.attack;
-    public int CurrentHealth => entityData.currentHealth;
-    public int Defence => entityData.defence;
-    public int Health => entityData.health;
-    public int Level => entityData.level;
-    public string Name => entityData.nickname;
-    public int SpecialAttack => entityData.specialAttack;
-    public int SpecialDefence => entityData.specialDefence;
-    public int Speed => entityData.speed;
-
-    #endregion Properties
-
-    #region Public Constructors
 
     public Entity(EntityData entityData)
     {
@@ -31,9 +11,16 @@ public class Entity
         Initialize();
     }
 
-    #endregion Public Constructors
-
-    #region Public Methods
+    public int Attack => entityData.attack;
+    public int CurrentHealth => entityData.currentHealth;
+    public int Defence => entityData.defence;
+    public int Health => entityData.health;
+    public int Level => entityData.level;
+    public List<MoveslotData> MoveslotDatas => entityData.moveslotDatas;
+    public string Name => entityData.nickname;
+    public int SpecialAttack => entityData.specialAttack;
+    public int SpecialDefence => entityData.specialDefence;
+    public int Speed => entityData.speed;
 
     public void Die()
     {
@@ -152,10 +139,6 @@ public class Entity
         CalculateStats();
     }
 
-    #endregion Public Methods
-
-    #region Private Methods
-
     private int CalculateStat(int _base, int _iv, int _ev, int _minimumValue, float _natureMultiplier, int _additionalBonus = 0)
     {
         return (int)((Mathf.FloorToInt(0.01f * (2f * _base + _iv + (0.25f * _ev)) * entityData.level) + _additionalBonus + _minimumValue) * _natureMultiplier);
@@ -175,6 +158,4 @@ public class Entity
     {
         return CalculateStat(_base, Constants.DUMMY_IV, Constants.DUMMY_EV, _minimumValue, Constants.DUMMY_NATURE, _additionalBonus);
     }
-
-    #endregion Private Methods
 }

@@ -2,8 +2,6 @@ using NUnit.Framework;
 
 public class EntityFunctionTests
 {
-    #region Public Methods
-
     [Test]
     public void EntityDie()
     {
@@ -85,6 +83,4 @@ public class EntityFunctionTests
 
         Assert.IsFalse(healthIncreased);
     }
-
-    #endregion Public Methods
 }

@@ -30,5 +30,45 @@
     "maxUses": 24,
     "preset": "Special",
     "accuracy": 100
+  },
+  {
+    "name": "Fire Fang",
+    "attributeKey": "Fire",
+    "power": 65,
+    "maxUses": 24,
+    "preset": "Physical",
+    "accuracy": 95
+  },
+  {
+    "name": "Flame Burst",
+    "attributeKey": "Fire",
+    "power": 70,
+    "maxUses": 24,
+    "preset": "Special",
+    "accuracy": 100
+  },
+  {
+    "name": "Slash",
+    "attributeKey": "Normal",
+    "power": 70,
+    "maxUses": 32,
+    "preset": "Physical",
+    "accuracy": 100
+  },
+  {
+    "name": "Inferno",
+    "attributeKey": "Fire",
+    "power": 100,
+    "maxUses": 8,
+    "preset": "Special",
+    "accuracy": 50
+  },
+  {
+    "name": "Fire Spin",
+    "attributeKey": "Fire",
+    "power": 35,
+    "maxUses": 24,
+    "preset": "Special",
+    "accuracy": 85
   }
 ]
