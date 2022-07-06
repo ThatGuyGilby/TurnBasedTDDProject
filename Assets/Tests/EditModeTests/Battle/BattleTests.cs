@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class BattleTests
 {
-    #region Public Methods
-
     [Test]
     public void BattleInitialize()
     {
@@ -79,12 +77,24 @@ public class BattleTests
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
         battle.Initialize();
 
-        ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.FLAMETHROWER);
+        ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.FLAMETHROWER, battle);
         battle.QueueCommand(playerAttackEnemyCommand);
         battle.ExecuteQueuedCommands();
 
         Assert.IsFalse(battle.ActiveEnemyEntity.IsAlive());
     }
 
-    #endregion Public Methods
+    [TestCase("Fire", WeatherKey.SUN, ExpectedResult = 1.5f)]
+    [TestCase("Water", WeatherKey.SUN, ExpectedResult = 0.5f)]
+    public float BattleWeatherMultiplier(string attributeString, WeatherKey weatherKey)
+    {
+        Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
+        Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
+
+        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).WithWeatherKey(weatherKey).Build();
+
+        battle.Initialize();
+
+        return battle.GetWeatherMultiplier(attributeString);
+    }
 }

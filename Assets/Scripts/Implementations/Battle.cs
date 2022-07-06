@@ -1,35 +1,17 @@
+using System;
 using System.Collections.Generic;
 
 public class Battle : IInvoker
 {
-    #region Private Fields
-
     private BattleData battleData;
-
-    #endregion Private Fields
-
-    #region Properties
-
-    public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
-
-    #endregion Properties
-
-    #region Public Constructors
 
     public Battle(BattleData battleData)
     {
         this.battleData = battleData;
     }
 
-    #endregion Public Constructors
-
-    #region Public Properties
-
+    public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
     public bool IsInitialized { get; private set; }
-
-    #endregion Public Properties
-
-    #region Public Methods
 
     public void ExecuteQueuedCommands()
     {
@@ -40,6 +22,49 @@ public class Battle : IInvoker
         }
 
         battleData.queuedCommands = new List<ICommand>();
+    }
+
+    public float GetWeatherMultiplier(string attributeString)
+    {
+        float multiplier = 1.0f;
+
+        AttributeData moveAttribute = RepositoryManager.attributeDataRepository.DataFromString(attributeString);
+
+        List<AttributeData> powerBoostedTypes = new List<AttributeData>();
+
+        HelperFunctions.Log($"{battleData.weatherData.name}");
+
+        foreach (string powerBoostedType in battleData.weatherData.powerBoostKeys)
+        {
+            if (powerBoostedType != "")
+                powerBoostedTypes.Add(RepositoryManager.attributeDataRepository.DataFromString(powerBoostedType));
+        }
+
+        foreach (AttributeData powerBoostedType in powerBoostedTypes)
+        {
+            if (powerBoostedType.name == moveAttribute.name)
+            {
+                multiplier = 1.5f;
+            }
+        }
+
+        List<AttributeData> powerReducedTypes = new List<AttributeData>();
+
+        foreach (string powerReducedType in battleData.weatherData.powerReductionKeys)
+        {
+            if (powerReducedType != "")
+                powerReducedTypes.Add(RepositoryManager.attributeDataRepository.DataFromString(powerReducedType));
+        }
+
+        foreach (AttributeData powerReducedType in powerReducedTypes)
+        {
+            if (powerReducedType.name == moveAttribute.name)
+            {
+                multiplier = 0.5f;
+            }
+        }
+
+        return multiplier;
     }
 
     public void Initialize()
@@ -71,10 +96,6 @@ public class Battle : IInvoker
         battleData.queuedCommands.Add(command);
     }
 
-    #endregion Public Methods
-
-    #region Private Methods
-
     private void SendEntityIntoBattle(Entity entity, Entity other, ref Entity activeEntity)
     {
         EntitySentIntoBattle entitySentIntoBattle = new EntitySentIntoBattle(entity, other);
@@ -90,6 +111,4 @@ public class Battle : IInvoker
 
         ExecuteQueuedCommands();
     }
-
-    #endregion Private Methods
 }

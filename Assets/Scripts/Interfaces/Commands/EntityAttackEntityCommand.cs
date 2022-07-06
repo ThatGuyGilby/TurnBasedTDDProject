@@ -2,26 +2,18 @@ using UnityEngine;
 
 public class EntityAttackEntityCommand : ICommand
 {
-    #region Public Fields
-
     public Entity attacker;
+    public Battle battle;
     public Entity defender;
     public MoveKey moveKey;
 
-    #endregion Public Fields
-
-    #region Public Constructors
-
-    public EntityAttackEntityCommand(Entity attacker, Entity defender, MoveKey moveKey)
+    public EntityAttackEntityCommand(Entity attacker, Entity defender, MoveKey moveKey, Battle battle)
     {
         this.attacker = attacker;
         this.defender = defender;
         this.moveKey = moveKey;
+        this.battle = battle;
     }
-
-    #endregion Public Constructors
-
-    #region Public Methods
 
     public void Execute()
     {
@@ -29,6 +21,7 @@ public class EntityAttackEntityCommand : ICommand
 
         float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
         float stabBonus = attacker.GetSTABMultiplier(moveData.attributeKey);
+        float weatherBonus = battle.GetWeatherMultiplier(moveData.attributeKey);
         // weather bonus
         // random roll
         int power = moveData.power;
@@ -68,6 +61,7 @@ public class EntityAttackEntityCommand : ICommand
 
             baseDamage *= moveAttributeDamageMultiplier;
             baseDamage *= stabBonus;
+            baseDamage *= weatherBonus;
 
             int damage = Mathf.RoundToInt(baseDamage);
 
@@ -86,6 +80,4 @@ public class EntityAttackEntityCommand : ICommand
             }
         }
     }
-
-    #endregion Public Methods
 }
