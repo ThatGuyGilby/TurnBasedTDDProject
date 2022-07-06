@@ -1,16 +1,11 @@
+using System;
 using System.Collections.Generic;
 
 public class EntityDataBuilder : IBuilder<EntityData>
 {
-    #region Private Fields
-
     private int level;
     private string nickname;
     private SpeciesKey speciesKey;
-
-    #endregion Private Fields
-
-    #region Public Constructors
 
     public EntityDataBuilder()
     {
@@ -18,10 +13,6 @@ public class EntityDataBuilder : IBuilder<EntityData>
         this.level = 1;
         this.speciesKey = SpeciesKey.CHARMANDER;
     }
-
-    #endregion Public Constructors
-
-    #region Public Methods
 
     public EntityData Build()
     {
@@ -32,8 +23,7 @@ public class EntityDataBuilder : IBuilder<EntityData>
             nickname = speciesData.name;
         }
 
-        List<MoveslotData> moveslotDatas = new List<MoveslotData>();
-
+        List<MoveslotData> moveslotDatas = GenerateDefaultMoveslotData(speciesData, level);
         HelperFunctions.LogReminder("Make the moveslots generate the last 4 moves that pokemon would have learned");
 
         return new EntityData(nickname, level, speciesKey, speciesData, moveslotDatas);
@@ -57,5 +47,25 @@ public class EntityDataBuilder : IBuilder<EntityData>
         return this;
     }
 
-    #endregion Public Methods
+    private List<MoveslotData> GenerateDefaultMoveslotData(SpeciesData speciesData, int entityLevel)
+    {
+        List<MoveslotData> defaultMoveslotDatas = new List<MoveslotData>();
+
+        for (int i = speciesData.speciesMoveLearnData.Count - 1; i >= 0; i--)
+        {
+            int currentMoveLevel = speciesData.speciesMoveLearnData[i].Value;
+            string currentMoveString = speciesData.speciesMoveLearnData[i].Key;
+            MoveKey moveKey = HelperFunctions.StringToMoveKey(currentMoveString);
+
+            if (currentMoveLevel <= entityLevel)
+            {
+                if (defaultMoveslotDatas.Count < Constants.NUMBER_OF_LEARNABLE_MOVES)
+                {
+                    defaultMoveslotDatas.Add(new MoveslotData(moveKey));
+                }
+            }
+        }
+
+        return defaultMoveslotDatas;
+    }
 }

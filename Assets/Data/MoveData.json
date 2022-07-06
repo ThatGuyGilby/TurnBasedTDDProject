@@ -22,5 +22,13 @@
     "maxUses": 24,
     "preset": "Special",
     "accuracy": 100
+  },
+  {
+    "name": "Razor Leaf",
+    "attributeKey": "Grass",
+    "power": 90,
+    "maxUses": 24,
+    "preset": "Special",
+    "accuracy": 100
   }
 ]

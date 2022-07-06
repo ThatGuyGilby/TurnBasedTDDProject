@@ -27,6 +27,13 @@ public class HelperFunctions
 
     #region Public Methods
 
+    public static MoveKey StringToMoveKey(string currentMoveString)
+    {
+        currentMoveString = currentMoveString.Replace(" ", "_").ToUpper();
+
+        return (MoveKey)Enum.Parse(typeof(MoveKey), currentMoveString);
+    }
+
     public static void ThrowException(string message)
     {
         throw new Exception(message);

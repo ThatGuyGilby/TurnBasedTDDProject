@@ -5,24 +5,14 @@ using Unity.Plastic.Newtonsoft.Json;
 
 public class Repository<T> where T : DataSource
 {
-    #region Public Fields
-
     public Dictionary<string, T> dataDictionary;
 
     public string dataPath;
-
-    #endregion Public Fields
-
-    #region Public Constructors
 
     public Repository(string dataPath)
     {
         this.dataPath = dataPath;
     }
-
-    #endregion Public Constructors
-
-    #region Public Methods
 
     public T DataFromKey(Enum dataKey)
     {
@@ -31,7 +21,7 @@ public class Repository<T> where T : DataSource
             LoadDataDictionary();
         }
 
-        string keyString = dataKey.ToString();
+        string keyString = dataKey.ToString().Replace("_", " ");
 
         if (dataDictionary.ContainsKey(keyString))
         {
@@ -42,8 +32,6 @@ public class Repository<T> where T : DataSource
             throw new Exception("The given key has no entry in the Dictionary");
         }
     }
-
-    #endregion Public Methods
 
     public T DataFromString(string dataString)
     {
@@ -64,8 +52,6 @@ public class Repository<T> where T : DataSource
         }
     }
 
-    #region Private Methods
-
     private void LoadDataDictionary()
     {
         List<T> dataSources;
@@ -83,6 +69,4 @@ public class Repository<T> where T : DataSource
             dataDictionary.Add(dataSource.name.ToUpper(), dataSource);
         }
     }
-
-    #endregion Private Methods
 }

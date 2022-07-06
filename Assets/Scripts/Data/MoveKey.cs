@@ -1,6 +1,8 @@
 public enum MoveKey
 {
+    NONE,
     TACKLE,
     SWIFT,
-    FLAMETHROWER
+    FLAMETHROWER,
+    RAZOR_LEAF
 }

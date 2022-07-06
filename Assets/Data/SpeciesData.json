@@ -5,6 +5,10 @@
     "secondaryAttributeKey": "",
     "speciesMoveLearnData": [
       {
+        "Key": "Tackle",
+        "Value": 1
+      },
+      {
         "Key": "Flamethrower",
         "Value": 5
       }
@@ -23,6 +27,10 @@
     "speciesMoveLearnData": [
       {
         "Key": "Tackle",
+        "Value": 1
+      },
+      {
+        "Key": "Razor Leaf",
         "Value": 5
       }
     ],
