@@ -41,6 +41,23 @@ public class Entity
         entityData.currentHealth = 0;
     }
 
+    public List<string> GetAttributeKeys()
+    {
+        List<string> attributeKeys = new List<string>();
+
+        if (entityData.speciesData.primaryAttributeKey != "")
+        {
+            attributeKeys.Add(entityData.speciesData.primaryAttributeKey);
+        }
+
+        if (entityData.speciesData.secondaryAttributeKey != "")
+        {
+            attributeKeys.Add(entityData.speciesData.secondaryAttributeKey);
+        }
+
+        return attributeKeys;
+    }
+
     public float GetIncomingMultiplier(string attributeString)
     {
         float multiplier = 1f;
@@ -49,7 +66,7 @@ public class Entity
 
         List<AttributeData> attributeDatas = new List<AttributeData>();
 
-        foreach (var item in entityData.speciesData.attributeKeys)
+        foreach (var item in GetAttributeKeys())
         {
             attributeDatas.Add(RepositoryManager.attributeDataRepository.DataFromString(item));
         }
@@ -83,7 +100,7 @@ public class Entity
 
         List<AttributeData> attributeDatas = new List<AttributeData>();
 
-        foreach (var item in entityData.speciesData.attributeKeys)
+        foreach (var item in GetAttributeKeys())
         {
             attributeDatas.Add(RepositoryManager.attributeDataRepository.DataFromString(item));
         }

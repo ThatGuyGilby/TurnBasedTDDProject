@@ -1,6 +1,14 @@
 [
   {
+    "name": "Clear",
+    "weatherMessage": "",
+    "powerBoostKeys": [ "" ],
+    "powerReductionKeys": [ "" ],
+    "specialDefenceBoostKeys": []
+  },
+  {
     "name": "Sun",
+    "weatherMessage": "The sunlight is strong.",
     "powerBoostKeys": [ "Fire" ],
     "powerReductionKeys": [ "Water" ],
     "specialDefenceBoostKeys": []

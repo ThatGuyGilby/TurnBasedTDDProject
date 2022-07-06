@@ -4,7 +4,8 @@ public class SpeciesData : DataSource
 {
     #region Public Fields
 
-    public List<string> attributeKeys;
+    public string primaryAttributeKey;
+    public string secondaryAttributeKey;
     public List<KeyValuePair<string, int>> speciesMoveLearnData;
 
     #endregion Public Fields

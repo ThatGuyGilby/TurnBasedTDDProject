@@ -6,6 +6,7 @@ public class BattleBuilder : IBuilder<Battle>
 
     private List<Entity> enemyEntities;
     private List<Entity> playerEntities;
+    private WeatherKey weatherKey;
 
     #endregion Private Fields
 
@@ -23,7 +24,7 @@ public class BattleBuilder : IBuilder<Battle>
 
     public Battle Build()
     {
-        BattleData battleData = new BattleDataBuilder().WithPlayerEntities(playerEntities).WithEnemyEntities(enemyEntities).Build();
+        BattleData battleData = new BattleDataBuilder().WithPlayerEntities(playerEntities).WithEnemyEntities(enemyEntities).WithWeatherKey(weatherKey).Build();
 
         return new Battle(battleData);
     }
@@ -57,6 +58,12 @@ public class BattleBuilder : IBuilder<Battle>
             playerEntities.Add(entity);
         }
 
+        return this;
+    }
+
+    public BattleBuilder WithWeatherKey(WeatherKey weatherKey)
+    {
+        this.weatherKey = weatherKey;
         return this;
     }
 
