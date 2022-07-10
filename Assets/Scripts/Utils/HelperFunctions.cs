@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 

@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class RepositoryManager
 {
     public static Repository<AttributeData> attributeDataRepository = new Repository<AttributeData>(Constants.ATTRIBUTE_DATA_PATH);
