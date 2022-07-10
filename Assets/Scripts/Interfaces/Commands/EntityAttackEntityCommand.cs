@@ -22,7 +22,6 @@ public class EntityAttackEntityCommand : ICommand
         float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);
         float stabBonus = attacker.GetSTABMultiplier(moveData.attributeKey);
         float weatherBonus = battle.GetWeatherMultiplier(moveData.attributeKey);
-        // weather bonus
         // random roll
         int power = moveData.power;
         int atk = 0;

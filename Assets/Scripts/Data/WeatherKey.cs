@@ -1,5 +1,6 @@
 public enum WeatherKey
 {
     CLEAR,
-    SUN
+    SUN,
+    RAIN
 }

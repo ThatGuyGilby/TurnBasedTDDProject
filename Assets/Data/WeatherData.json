@@ -12,5 +12,12 @@
     "powerBoostKeys": [ "Fire" ],
     "powerReductionKeys": [ "Water" ],
     "specialDefenceBoostKeys": []
+  },
+  {
+    "name": "Rain",
+    "weatherMessage": "It's raining!",
+    "powerBoostKeys": [ "Water" ],
+    "powerReductionKeys": [ "Fire" ],
+    "specialDefenceBoostKeys": []
   }
 ]

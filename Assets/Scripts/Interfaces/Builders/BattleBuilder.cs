@@ -2,25 +2,15 @@ using System.Collections.Generic;
 
 public class BattleBuilder : IBuilder<Battle>
 {
-    #region Private Fields
-
     private List<Entity> enemyEntities;
     private List<Entity> playerEntities;
     private WeatherKey weatherKey;
-
-    #endregion Private Fields
-
-    #region Public Constructors
 
     public BattleBuilder()
     {
         this.playerEntities = new List<Entity>();
         this.enemyEntities = new List<Entity>();
     }
-
-    #endregion Public Constructors
-
-    #region Public Methods
 
     public Battle Build()
     {
@@ -66,6 +56,4 @@ public class BattleBuilder : IBuilder<Battle>
         this.weatherKey = weatherKey;
         return this;
     }
-
-    #endregion Public Methods
 }

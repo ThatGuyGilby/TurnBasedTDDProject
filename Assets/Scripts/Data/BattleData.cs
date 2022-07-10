@@ -2,8 +2,6 @@ using System.Collections.Generic;
 
 public class BattleData
 {
-    #region Public Fields
-
     public Entity activeEnemyEntity;
     public Entity activePlayerEntity;
     public List<Entity> enemyEntities;
@@ -12,10 +10,6 @@ public class BattleData
     public List<ICommand> queuedCommands;
 
     public WeatherData weatherData;
-
-    #endregion Public Fields
-
-    #region Public Constructors
 
     public BattleData(List<Entity> playerEntities, List<Entity> enemyEntities, WeatherData weatherData)
     {
@@ -27,6 +21,4 @@ public class BattleData
 
         this.weatherData = weatherData;
     }
-
-    #endregion Public Constructors
 }

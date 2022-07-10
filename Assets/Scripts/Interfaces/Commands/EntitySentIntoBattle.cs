@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class EntitySentIntoBattle : ICommand
 {
-    #region Public Fields
-
     public Entity entity;
     public Entity other;
-
-    #endregion Public Fields
-
-    #region Public Constructors
 
     public EntitySentIntoBattle(Entity entity, Entity otherEntity)
     {
@@ -19,14 +13,8 @@ public class EntitySentIntoBattle : ICommand
         this.other = otherEntity;
     }
 
-    #endregion Public Constructors
-
-    #region Public Methods
-
     public void Execute()
     {
         HelperFunctions.Log($"{entity.Name} was sent out!");
     }
-
-    #endregion Public Methods
 }

@@ -1,14 +1,8 @@
 public class EntityBuilder : IBuilder<Entity>
 {
-    #region Private Fields
-
     private int level;
     private string nickname;
     private SpeciesKey speciesKey;
-
-    #endregion Private Fields
-
-    #region Public Constructors
 
     public EntityBuilder()
     {
@@ -16,10 +10,6 @@ public class EntityBuilder : IBuilder<Entity>
         this.level = 1;
         this.speciesKey = SpeciesKey.CHARMANDER;
     }
-
-    #endregion Public Constructors
-
-    #region Public Methods
 
     public Entity Build()
     {
@@ -45,6 +35,4 @@ public class EntityBuilder : IBuilder<Entity>
         this.speciesKey = speciesKey;
         return this;
     }
-
-    #endregion Public Methods
 }

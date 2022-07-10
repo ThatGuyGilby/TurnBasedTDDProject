@@ -86,6 +86,8 @@ public class BattleTests
 
     [TestCase("Fire", WeatherKey.SUN, ExpectedResult = 1.5f)]
     [TestCase("Water", WeatherKey.SUN, ExpectedResult = 0.5f)]
+    [TestCase("Water", WeatherKey.RAIN, ExpectedResult = 1.5f)]
+    [TestCase("Fire", WeatherKey.RAIN, ExpectedResult = 0.5f)]
     public float BattleWeatherMultiplier(string attributeString, WeatherKey weatherKey)
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();

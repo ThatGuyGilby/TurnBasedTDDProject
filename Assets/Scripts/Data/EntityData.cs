@@ -2,35 +2,19 @@ using System.Collections.Generic;
 
 public class EntityData
 {
-    #region Public Fields
-
-    public int level;
-    public string nickname;
-    public SpeciesData speciesData;
-    public SpeciesKey speciesKey;
-
-    #endregion Public Fields
-
-    #region Persistant Data
-
     public bool alive;
-    public int currentHealth;
-    public List<MoveslotData> moveslotDatas;
-
-    #endregion Persistant Data
-
-    #region Stats
-
     public int attack;
+    public int currentHealth;
     public int defence;
     public int health;
+    public int level;
+    public List<MoveslotData> moveslotDatas;
+    public string nickname;
     public int specialAttack;
     public int specialDefence;
+    public SpeciesData speciesData;
+    public SpeciesKey speciesKey;
     public int speed;
-
-    #endregion Stats
-
-    #region Public Constructors
 
     public EntityData(string nickname, int level, SpeciesKey speciesKey, SpeciesData speciesData, List<MoveslotData> moveslotDatas)
     {
@@ -40,6 +24,4 @@ public class EntityData
         this.speciesData = speciesData;
         this.moveslotDatas = moveslotDatas;
     }
-
-    #endregion Public Constructors
 }

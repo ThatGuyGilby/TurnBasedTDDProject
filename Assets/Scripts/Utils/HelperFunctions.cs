@@ -25,8 +25,6 @@ public class HelperFunctions
 
     #endregion Logging
 
-    #region Public Methods
-
     public static MoveKey StringToMoveKey(string currentMoveString)
     {
         currentMoveString = currentMoveString.Replace(" ", "_").ToUpper();
@@ -38,6 +36,4 @@ public class HelperFunctions
     {
         throw new Exception(message);
     }
-
-    #endregion Public Methods
 }
