@@ -100,13 +100,23 @@ public class Battle : IInvoker
 
     public void SendPlayerMove(int moveIndex)
     {
+        if (moveIndex >= Constants.NUMBER_OF_LEARNABLE_MOVES)
+        {
+            HelperFunctions.ThrowException("moveIndex was above the learnable move limit.");
+        }
+
+        if (moveIndex > ActivePlayerEntity.MoveslotDatas.Count)
+        {
+            HelperFunctions.ThrowException("moveIndex was above the number of known moves");
+        }
+
         EntityAttackEntityCommand playerEntityAttackEntityCommand = GenerateAttackCommand(ActivePlayerEntity, ActiveEnemyEntity, moveIndex);
         QueueCommand(playerEntityAttackEntityCommand);
     }
 
-    private EntityAttackEntityCommand GenerateAttackCommand(Entity activePlayerEntity, Entity activeEnemyEntity, int moveIndex)
+    private EntityAttackEntityCommand GenerateAttackCommand(Entity attacker, Entity defender, int moveIndex)
     {
-        return new EntityAttackEntityCommand(activePlayerEntity, activeEnemyEntity, activePlayerEntity.MoveslotDatas[moveIndex].moveKey, this);
+        return new EntityAttackEntityCommand(attacker, defender, attacker.MoveslotDatas[moveIndex].moveKey, this);
     }
 
     private void SendEntityIntoBattle(Entity entity, Entity other, ref Entity activeEntity)
