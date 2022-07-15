@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class Battle : IInvoker
@@ -7,9 +8,11 @@ public class Battle : IInvoker
     public Battle(BattleData battleData)
     {
         this.battleData = battleData;
+        Initialize();
     }
 
     public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
+    public Entity ActivePlayerEntity => battleData.activePlayerEntity;
     public bool IsInitialized { get; private set; }
 
     public void ExecuteQueuedCommands()
@@ -93,6 +96,17 @@ public class Battle : IInvoker
     public void QueueCommand(ICommand command)
     {
         battleData.queuedCommands.Add(command);
+    }
+
+    public void SendPlayerMove(int moveIndex)
+    {
+        EntityAttackEntityCommand playerEntityAttackEntityCommand = GenerateAttackCommand(ActivePlayerEntity, ActiveEnemyEntity, moveIndex);
+        QueueCommand(playerEntityAttackEntityCommand);
+    }
+
+    private EntityAttackEntityCommand GenerateAttackCommand(Entity activePlayerEntity, Entity activeEnemyEntity, int moveIndex)
+    {
+        return new EntityAttackEntityCommand(activePlayerEntity, activeEnemyEntity, activePlayerEntity.MoveslotDatas[moveIndex].moveKey, this);
     }
 
     private void SendEntityIntoBattle(Entity entity, Entity other, ref Entity activeEntity)

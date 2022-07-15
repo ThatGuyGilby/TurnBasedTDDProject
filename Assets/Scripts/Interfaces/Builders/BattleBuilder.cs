@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class BattleBuilder : IBuilder<Battle>
@@ -32,6 +33,12 @@ public class BattleBuilder : IBuilder<Battle>
             enemyEntities.Add(entity);
         }
 
+        return this;
+    }
+
+    public BattleBuilder WithPlayer(Player player)
+    {
+        playerEntities.AddRange(player.Party);
         return this;
     }
 

@@ -22,9 +22,9 @@ public class BattleTests
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
 
-        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur, 7).WithPlayerEntity(charmander).Build();
+        BattleBuilder battleBuilder = new BattleBuilder().WithEnemyEntity(bulbasaur, 7).WithPlayerEntity(charmander);
 
-        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+        var ex = Assert.Throws<Exception>(() => battleBuilder.Build());
 
         Assert.That(ex.Message, Is.EqualTo($"Invalid enemy party size: 7"));
     }
@@ -33,9 +33,9 @@ public class BattleTests
     public void BattleInitializeEnemyNull()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
-        Battle battle = new BattleBuilder().WithPlayerEntity(charmander).Build();
+        BattleBuilder battleBuilder = new BattleBuilder().WithPlayerEntity(charmander);
 
-        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+        var ex = Assert.Throws<Exception>(() => battleBuilder.Build());
 
         Assert.That(ex.Message, Is.EqualTo($"Invalid enemy party size: 0"));
     }
@@ -46,9 +46,9 @@ public class BattleTests
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
 
-        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander, 7).Build();
+        BattleBuilder battleBuilder = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander, 7);
 
-        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+        var ex = Assert.Throws<Exception>(() => battleBuilder.Build());
 
         Assert.That(ex.Message, Is.EqualTo($"Invalid player party size: 7"));
     }
@@ -57,9 +57,10 @@ public class BattleTests
     public void BattleInitializePlayerNull()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
-        Battle battle = new BattleBuilder().WithEnemyEntity(charmander).Build();
 
-        var ex = Assert.Throws<Exception>(() => battle.Initialize());
+        BattleBuilder battleBuilder = new BattleBuilder().WithEnemyEntity(charmander);
+
+        var ex = Assert.Throws<Exception>(() => battleBuilder.Build());
 
         Assert.That(ex.Message, Is.EqualTo($"Invalid player party size: 0"));
     }
@@ -68,13 +69,10 @@ public class BattleTests
     public void BattleQueueAndExecuteCommand()
     {
         Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
-        charmander.Initialize();
 
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
-        bulbasaur.Initialize();
 
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
-        battle.Initialize();
 
         ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.FLAMETHROWER, battle);
         battle.QueueCommand(playerAttackEnemyCommand);
@@ -93,8 +91,6 @@ public class BattleTests
         Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
 
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).WithWeatherKey(weatherKey).Build();
-
-        battle.Initialize();
 
         return battle.GetWeatherMultiplier(attributeString);
     }
