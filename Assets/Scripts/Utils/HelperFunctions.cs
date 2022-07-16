@@ -6,6 +6,11 @@ public class HelperFunctions
 {
     #region Logging
 
+    public static void DebugLog(string message)
+    {
+        //Debug.Log(message);
+    }
+
     public static void Log(string message)
     {
         Debug.Log(message);

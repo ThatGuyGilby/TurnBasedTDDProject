@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Entity
 {
-    private EntityData entityData;
+    [SerializeField] private EntityData entityData;
 
     public Entity(EntityData entityData)
     {

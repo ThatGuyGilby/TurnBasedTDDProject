@@ -10,16 +10,16 @@ public class PlayerDataBuilder : IBuilder<PlayerData>
 
     public PlayerDataBuilder()
     {
-        HelperFunctions.Log($"PlayerData initializing...");
+        HelperFunctions.DebugLog($"PlayerData initializing...");
         name = "New Trainer";
         party = new List<Entity>();
-        HelperFunctions.Log($"PlayerData initialized...");
-        HelperFunctions.Log($"PlayerData party.Count: {party.Count}");
+        HelperFunctions.DebugLog($"PlayerData initialized...");
+        HelperFunctions.DebugLog($"PlayerData party.Count: {party.Count}");
     }
 
     public PlayerData Build()
     {
-        HelperFunctions.Log($"PlayerData party.Count: {party.Count}");
+        HelperFunctions.DebugLog($"PlayerData party.Count: {party.Count}");
 
         if (party.Count == 0)
         {
@@ -37,9 +37,9 @@ public class PlayerDataBuilder : IBuilder<PlayerData>
 
     public PlayerDataBuilder WithParty(List<Entity> party)
     {
-        HelperFunctions.Log($"PlayerData party.Count before: {party.Count}");
+        HelperFunctions.DebugLog($"PlayerData party.Count before: {party.Count}");
         this.party.AddRange(party);
-        HelperFunctions.Log($"PlayerData party.Count after: {party.Count}");
+        HelperFunctions.DebugLog($"PlayerData party.Count after: {party.Count}");
         return this;
     }
 }

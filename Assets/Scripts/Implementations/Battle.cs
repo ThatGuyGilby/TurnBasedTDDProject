@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
+[System.Serializable]
 public class Battle : IInvoker
 {
-    private BattleData battleData;
+    [SerializeField] private BattleData battleData;
 
     public Battle(BattleData battleData)
     {
