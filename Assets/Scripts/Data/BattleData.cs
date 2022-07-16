@@ -8,7 +8,6 @@ public class BattleData
     public List<ICommand> executedCommands;
     public List<Entity> playerEntities;
     public List<ICommand> queuedCommands;
-
     public WeatherData weatherData;
 
     public BattleData(List<Entity> playerEntities, List<Entity> enemyEntities, WeatherData weatherData)

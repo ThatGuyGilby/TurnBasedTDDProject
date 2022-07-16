@@ -17,6 +17,8 @@ public class EntityAttackEntityCommand : ICommand
 
     public void Execute()
     {
+        if (!attacker.IsAlive() || !defender.IsAlive()) return;
+
         MoveData moveData = RepositoryManager.moveDataRepository.DataFromKey(moveKey);
 
         float moveAttributeDamageMultiplier = defender.GetIncomingMultiplier(moveData.attributeKey);

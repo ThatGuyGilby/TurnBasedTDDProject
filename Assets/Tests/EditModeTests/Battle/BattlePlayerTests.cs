@@ -28,9 +28,7 @@ public class BattlePlayerTests
         Player player = new PlayerBuilder().WithEntity(charmander).Build();
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayer(player).WithWeatherKey(WeatherKey.SUN).Build();
 
-        battle.SendPlayerMove(0);
-
-        battle.ExecuteQueuedCommands();
+        battle.SendPlayerInput(0);
 
         Assert.IsFalse(battle.ActiveEnemyEntity.IsAlive());
     }
@@ -44,7 +42,7 @@ public class BattlePlayerTests
         Player player = new PlayerBuilder().WithEntity(charmander).Build();
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayer(player).WithWeatherKey(WeatherKey.SUN).Build();
 
-        var ex = Assert.Throws<Exception>(() => battle.SendPlayerMove(3));
+        var ex = Assert.Throws<Exception>(() => battle.SendPlayerInput(3));
 
         Assert.That(ex.Message, Is.EqualTo("moveIndex was above the number of known moves"));
     }
@@ -58,7 +56,7 @@ public class BattlePlayerTests
         Player player = new PlayerBuilder().WithEntity(charmander).Build();
         Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayer(player).WithWeatherKey(WeatherKey.SUN).Build();
 
-        var ex = Assert.Throws<Exception>(() => battle.SendPlayerMove(Constants.NUMBER_OF_LEARNABLE_MOVES));
+        var ex = Assert.Throws<Exception>(() => battle.SendPlayerInput(Constants.NUMBER_OF_LEARNABLE_MOVES));
 
         Assert.That(ex.Message, Is.EqualTo("moveIndex was above the learnable move limit."));
     }

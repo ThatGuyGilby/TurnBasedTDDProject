@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1007
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Test Runner
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 27
+  controlID: 15
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 957
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 15}
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 379
     height: 579
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -128,7 +128,7 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 19}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 28
+  controlID: 108
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 17
+  controlID: 109
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -307,7 +307,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 348
+    ID: 124
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -332,15 +332,31 @@ MonoBehaviour:
     oldSplitSize: 0
   m_TestTypeToolbarIndex: 1
   m_PlayModeTestListGUI:
-    m_Window: {fileID: 0}
-    m_NewResultList: []
+    m_Window: {fileID: 12}
+    m_NewResultList:
+    - id: 1290
+      uniqueId: '[Idlemon][suite]'
+      name: Idlemon
+      fullName: Idlemon
+      resultStatus: 0
+      duration: 0
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
     m_ResultText: 
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 
+      m_ExpandedIDs: 26adeda6ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -364,7 +380,8 @@ MonoBehaviour:
       NotRunHidden: 0
       m_SearchString: 
       selectedCategoryMask: 0
-      availableCategories: []
+      availableCategories:
+      - Uncategorized
     m_SelectedOption: 0
   m_EditModeTestListGUI:
     m_Window: {fileID: 12}
@@ -373,9 +390,9 @@ MonoBehaviour:
       uniqueId: '[Idlemon][suite]'
       name: Idlemon
       fullName: Idlemon
-      resultStatus: 2
-      duration: 0.3089532
-      messages: One or more child tests had errors
+      resultStatus: 1
+      duration: 0.5645966
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -386,12 +403,12 @@ MonoBehaviour:
       parentId: 
       parentUniqueId: 
     - id: 1055
-      uniqueId: '[EditModeTests][E:/Unity Projects/Idlemon/Library/ScriptAssemblies/EditModeTests.dll][suite]'
+      uniqueId: '[EditModeTests][E:/Unity Projects/TurnBasedTDDProject/Library/ScriptAssemblies/EditModeTests.dll][suite]'
       name: EditModeTests.dll
-      fullName: E:/Unity Projects/Idlemon/Library/ScriptAssemblies/EditModeTests.dll
-      resultStatus: 2
-      duration: 0.2686027
-      messages: One or more child tests had errors
+      fullName: E:/Unity Projects/TurnBasedTDDProject/Library/ScriptAssemblies/EditModeTests.dll
+      resultStatus: 1
+      duration: 0.5292443
+      messages: 
       output: 
       stacktrace: 
       notRunnable: 0
@@ -402,13 +419,242 @@ MonoBehaviour:
       parentId: 1000
       parentUniqueId: '[Idlemon][suite]'
     - id: 1001
+      uniqueId: EditModeTests.dll/[EditModeTests][BattlePlayerTests][suite]
+      name: BattlePlayerTests
+      fullName: BattlePlayerTests
+      resultStatus: 1
+      duration: 0.3678958
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1062
+      parentUniqueId: '[EditModeTests][E:/Unity Projects/TurnBasedTDDProject/Library/ScriptAssemblies/EditModeTests.dll][suite]'
+    - id: 1002
+      uniqueId: EditModeTests.dll/BattlePlayerTests/[EditModeTests][BattlePlayerTests.BattleInitializeWithPlayer]
+      name: BattleInitializeWithPlayer
+      fullName: BattlePlayerTests.BattleInitializeWithPlayer
+      resultStatus: 1
+      duration: 0.2929234
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+        The sunlight
+        is strong.
+
+        Charmander was sent out!
+
+        Bulbasaur was sent
+        out!
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditModeTests.dll/[EditModeTests][BattlePlayerTests][suite]
+    - id: 1003
+      uniqueId: EditModeTests.dll/BattlePlayerTests/[EditModeTests][BattlePlayerTests.BattleSendPlayerMove]
+      name: BattleSendPlayerMove
+      fullName: BattlePlayerTests.BattleSendPlayerMove
+      resultStatus: 1
+      duration: 0.0144155
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+        The sunlight
+        is strong.
+
+        Charmander was sent out!
+
+        Bulbasaur was sent
+        out!
+
+        Sun
+
+        Charmander used Ember!
+
+        It''s super
+        effective!
+
+        The opposing Bulbasaur lost 138% of its health!
+
+        The
+        opposing Bulbasaur fainted!
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditModeTests.dll/[EditModeTests][BattlePlayerTests][suite]
+    - id: 1004
+      uniqueId: EditModeTests.dll/BattlePlayerTests/[EditModeTests][BattlePlayerTests.BattleSendPlayerMoveAboveKnownMoves]
+      name: BattleSendPlayerMoveAboveKnownMoves
+      fullName: BattlePlayerTests.BattleSendPlayerMoveAboveKnownMoves
+      resultStatus: 1
+      duration: 0.0299227
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+        The sunlight
+        is strong.
+
+        Charmander was sent out!
+
+        Bulbasaur was sent
+        out!
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditModeTests.dll/[EditModeTests][BattlePlayerTests][suite]
+    - id: 1004
+      uniqueId: EditModeTests.dll/BattlePlayerTests/[EditModeTests][BattlePlayerTests.BattleSendPlayerMoveAboveMoveLimit]
+      name: BattleSendPlayerMoveAboveMoveLimit
+      fullName: BattlePlayerTests.BattleSendPlayerMoveAboveMoveLimit
+      resultStatus: 1
+      duration: 0.0050339
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+        The sunlight
+        is strong.
+
+        Charmander was sent out!
+
+        Bulbasaur was sent
+        out!
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: EditModeTests.dll/[EditModeTests][BattlePlayerTests][suite]
+    - id: 1001
       uniqueId: EditModeTests.dll/[EditModeTests][BattleTests][suite]
       name: BattleTests
       fullName: BattleTests
       resultStatus: 1
-      duration: 0.1579843
+      duration: 0.038081
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -422,7 +668,7 @@ MonoBehaviour:
       name: BattleInitialize
       fullName: BattleTests.BattleInitialize
       resultStatus: 1
-      duration: 0.1015615
+      duration: 0.0028763
       messages: 
       output: 'The sunlight is strong.
 
@@ -430,6 +676,13 @@ MonoBehaviour:
 
         Bulbasaur
         was sent out!
+
+        The sunlight is strong.
+
+        Charmander was
+        sent out!
+
+        Bulbasaur was sent out!
 
 '
       stacktrace: 
@@ -446,7 +699,7 @@ MonoBehaviour:
       name: BattleInitializeEnemyAbovePartyLimit
       fullName: BattleTests.BattleInitializeEnemyAbovePartyLimit
       resultStatus: 1
-      duration: 0.0074614
+      duration: 0.0013354
       messages: 
       output: '
 
@@ -465,7 +718,7 @@ MonoBehaviour:
       name: BattleInitializeEnemyNull
       fullName: BattleTests.BattleInitializeEnemyNull
       resultStatus: 1
-      duration: 0.000871
+      duration: 0.0009965
       messages: 
       output: '
 
@@ -484,7 +737,7 @@ MonoBehaviour:
       name: BattleInitializePlayerAbovePartyLimit
       fullName: BattleTests.BattleInitializePlayerAbovePartyLimit
       resultStatus: 1
-      duration: 0.0007966
+      duration: 0.0009452
       messages: 
       output: '
 
@@ -503,7 +756,7 @@ MonoBehaviour:
       name: BattleInitializePlayerNull
       fullName: BattleTests.BattleInitializePlayerNull
       resultStatus: 1
-      duration: 0.0007949
+      duration: 0.0008245
       messages: 
       output: '
 
@@ -522,7 +775,7 @@ MonoBehaviour:
       name: BattleQueueAndExecuteCommand
       fullName: BattleTests.BattleQueueAndExecuteCommand
       resultStatus: 1
-      duration: 0.0107386
+      duration: 0.0034534
       messages: 
       output: '
 
@@ -557,9 +810,54 @@ MonoBehaviour:
       name: BattleWeatherMultiplier
       fullName: BattleTests.BattleWeatherMultiplier
       resultStatus: 1
-      duration: 0.0205174
+      duration: 0.0165833
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -573,7 +871,7 @@ MonoBehaviour:
       name: BattleWeatherMultiplier("Fire",SUN)
       fullName: BattleTests.BattleWeatherMultiplier("Fire",SUN)
       resultStatus: 1
-      duration: 0.0035508
+      duration: 0.0033996
       messages: 
       output: 'The sunlight is strong.
 
@@ -599,7 +897,7 @@ MonoBehaviour:
       name: BattleWeatherMultiplier("Water",SUN)
       fullName: BattleTests.BattleWeatherMultiplier("Water",SUN)
       resultStatus: 1
-      duration: 0.0021368
+      duration: 0.0022573
       messages: 
       output: 'The sunlight is strong.
 
@@ -625,7 +923,7 @@ MonoBehaviour:
       name: BattleWeatherMultiplier("Water",RAIN)
       fullName: BattleTests.BattleWeatherMultiplier("Water",RAIN)
       resultStatus: 1
-      duration: 0.0017343
+      duration: 0.002034
       messages: 
       output: 'It''s raining!
 
@@ -651,7 +949,7 @@ MonoBehaviour:
       name: BattleWeatherMultiplier("Fire",RAIN)
       fullName: BattleTests.BattleWeatherMultiplier("Fire",RAIN)
       resultStatus: 1
-      duration: 0.0017694
+      duration: 0.0020513
       messages: 
       output: 'It''s raining!
 
@@ -677,9 +975,54 @@ MonoBehaviour:
       name: EntityDataTests
       fullName: EntityDataTests
       resultStatus: 1
-      duration: 0.0566619
+      duration: 0.0532871
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -693,7 +1036,7 @@ MonoBehaviour:
       name: EntityAttackCalculatedCorrectly
       fullName: EntityDataTests.EntityAttackCalculatedCorrectly
       resultStatus: 1
-      duration: 0.0066456
+      duration: 0.0019165
       messages: 
       output: 
       stacktrace: 
@@ -709,7 +1052,7 @@ MonoBehaviour:
       name: EntityAttackCalculatedCorrectly(100,CHARMANDER)
       fullName: EntityDataTests.EntityAttackCalculatedCorrectly(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.0010237
+      duration: 0.0011958
       messages: 
       output: 
       stacktrace: 
@@ -726,9 +1069,54 @@ MonoBehaviour:
       name: EntityCreatedWithMoves
       fullName: EntityDataTests.EntityCreatedWithMoves
       resultStatus: 1
-      duration: 0.0123453
+      duration: 0.0125744
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -742,7 +1130,7 @@ MonoBehaviour:
       name: EntityCreatedWithMoves(7,CHARMANDER)
       fullName: EntityDataTests.EntityCreatedWithMoves(7,CHARMANDER)
       resultStatus: 1
-      duration: 0.0014543
+      duration: 0.0016536
       messages: 
       output: 'EMBER
 
@@ -763,7 +1151,7 @@ MonoBehaviour:
       name: EntityCreatedWithMoves(100,CHARMANDER)
       fullName: EntityDataTests.EntityCreatedWithMoves(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.002003
+      duration: 0.0017805
       messages: 
       output: 'INFERNO
 
@@ -788,7 +1176,7 @@ MonoBehaviour:
       name: EntityCreatedWithMoves(3,BULBASAUR)
       fullName: EntityDataTests.EntityCreatedWithMoves(3,BULBASAUR)
       resultStatus: 1
-      duration: 0.0009133
+      duration: 0.0009344
       messages: 
       output: 'VINE_WHIP
 
@@ -809,7 +1197,7 @@ MonoBehaviour:
       name: EntityCreatedWithMoves(1000,BULBASAUR)
       fullName: EntityDataTests.EntityCreatedWithMoves(1000,BULBASAUR)
       resultStatus: 1
-      duration: 0.001692
+      duration: 0.0017384
       messages: 
       output: 'SEED_BOMB
 
@@ -834,9 +1222,54 @@ MonoBehaviour:
       name: EntityDefenceCalculatedCorrectly
       fullName: EntityDataTests.EntityDefenceCalculatedCorrectly
       resultStatus: 1
-      duration: 0.0055591
+      duration: 0.0068428
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -850,7 +1283,7 @@ MonoBehaviour:
       name: EntityDefenceCalculatedCorrectly(100,CHARMANDER)
       fullName: EntityDataTests.EntityDefenceCalculatedCorrectly(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.0003353
+      duration: 0.0003594
       messages: 
       output: 
       stacktrace: 
@@ -867,9 +1300,54 @@ MonoBehaviour:
       name: EntityHealthCalculatedCorrectly
       fullName: EntityDataTests.EntityHealthCalculatedCorrectly
       resultStatus: 1
-      duration: 0.0059497
+      duration: 0.0058227
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -883,7 +1361,7 @@ MonoBehaviour:
       name: EntityHealthCalculatedCorrectly(100,CHARMANDER)
       fullName: EntityDataTests.EntityHealthCalculatedCorrectly(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.0003348
+      duration: 0.0003591
       messages: 
       output: 
       stacktrace: 
@@ -900,9 +1378,54 @@ MonoBehaviour:
       name: EntitySpecialAttackCalculatedCorrectly
       fullName: EntityDataTests.EntitySpecialAttackCalculatedCorrectly
       resultStatus: 1
-      duration: 0.0061669
+      duration: 0.005867
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -916,7 +1439,7 @@ MonoBehaviour:
       name: EntitySpecialAttackCalculatedCorrectly(100,CHARMANDER)
       fullName: EntityDataTests.EntitySpecialAttackCalculatedCorrectly(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.0003329
+      duration: 0.0003344
       messages: 
       output: 
       stacktrace: 
@@ -933,9 +1456,54 @@ MonoBehaviour:
       name: EntitySpecialDefenceCalculatedCorrectly
       fullName: EntityDataTests.EntitySpecialDefenceCalculatedCorrectly
       resultStatus: 1
-      duration: 0.0062152
+      duration: 0.0061161
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -949,7 +1517,7 @@ MonoBehaviour:
       name: EntitySpecialDefenceCalculatedCorrectly(100,CHARMANDER)
       fullName: EntityDataTests.EntitySpecialDefenceCalculatedCorrectly(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.0003401
+      duration: 0.0003367
       messages: 
       output: 
       stacktrace: 
@@ -966,9 +1534,54 @@ MonoBehaviour:
       name: EntitySpeedCalculatedCorrectly
       fullName: EntityDataTests.EntitySpeedCalculatedCorrectly
       resultStatus: 1
-      duration: 0.0056894
+      duration: 0.0062751
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -982,7 +1595,7 @@ MonoBehaviour:
       name: EntitySpeedCalculatedCorrectly(100,CHARMANDER)
       fullName: EntityDataTests.EntitySpeedCalculatedCorrectly(100,CHARMANDER)
       resultStatus: 1
-      duration: 0.0003527
+      duration: 0.0003778
       messages: 
       output: 
       stacktrace: 
@@ -999,9 +1612,54 @@ MonoBehaviour:
       name: EntityFunctionTests
       fullName: EntityFunctionTests
       resultStatus: 1
-      duration: 0.0361269
+      duration: 0.0375313
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -1015,7 +1673,7 @@ MonoBehaviour:
       name: EntityDie
       fullName: EntityFunctionTests.EntityDie
       resultStatus: 1
-      duration: 0.000563
+      duration: 0.0002735
       messages: 
       output: 
       stacktrace: 
@@ -1032,9 +1690,54 @@ MonoBehaviour:
       name: EntityGetIncomingMMultiplier
       fullName: EntityFunctionTests.EntityGetIncomingMMultiplier
       resultStatus: 1
-      duration: 0.0067104
+      duration: 0.0072214
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -1048,7 +1751,7 @@ MonoBehaviour:
       name: EntityGetIncomingMMultiplier(CHARMANDER,"Fire",0.5f)
       fullName: EntityFunctionTests.EntityGetIncomingMMultiplier(CHARMANDER,"Fire",0.5f)
       resultStatus: 1
-      duration: 0.0004432
+      duration: 0.0004537
       messages: 
       output: 
       stacktrace: 
@@ -1065,7 +1768,7 @@ MonoBehaviour:
       name: EntityGetIncomingMMultiplier(CHARMANDER,"Grass",0.5f)
       fullName: EntityFunctionTests.EntityGetIncomingMMultiplier(CHARMANDER,"Grass",0.5f)
       resultStatus: 1
-      duration: 0.0001391
+      duration: 0.0001201
       messages: 
       output: 
       stacktrace: 
@@ -1082,7 +1785,7 @@ MonoBehaviour:
       name: EntityGetIncomingMMultiplier(BULBASAUR,"Ice",2.0f)
       fullName: EntityFunctionTests.EntityGetIncomingMMultiplier(BULBASAUR,"Ice",2.0f)
       resultStatus: 1
-      duration: 0.0001143
+      duration: 0.0001073
       messages: 
       output: 
       stacktrace: 
@@ -1099,7 +1802,7 @@ MonoBehaviour:
       name: EntityGetIncomingMMultiplier(BULBASAUR,"Water",0.5f)
       fullName: EntityFunctionTests.EntityGetIncomingMMultiplier(BULBASAUR,"Water",0.5f)
       resultStatus: 1
-      duration: 0.0001084
+      duration: 0.0001027
       messages: 
       output: 
       stacktrace: 
@@ -1116,9 +1819,54 @@ MonoBehaviour:
       name: EntityGetSTABMMultiplier
       fullName: EntityFunctionTests.EntityGetSTABMMultiplier
       resultStatus: 1
-      duration: 0.0065978
+      duration: 0.0075373
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -1132,7 +1880,7 @@ MonoBehaviour:
       name: EntityGetSTABMMultiplier(CHARMANDER,"Fire",1.5f)
       fullName: EntityFunctionTests.EntityGetSTABMMultiplier(CHARMANDER,"Fire",1.5f)
       resultStatus: 1
-      duration: 0.0003469
+      duration: 0.0003531
       messages: 
       output: 
       stacktrace: 
@@ -1149,7 +1897,7 @@ MonoBehaviour:
       name: EntityGetSTABMMultiplier(CHARMANDER,"Grass",1.0f)
       fullName: EntityFunctionTests.EntityGetSTABMMultiplier(CHARMANDER,"Grass",1.0f)
       resultStatus: 1
-      duration: 0.0001332
+      duration: 0.0001283
       messages: 
       output: 
       stacktrace: 
@@ -1166,7 +1914,7 @@ MonoBehaviour:
       name: EntityGetSTABMMultiplier(BULBASAUR,"Grass",1.5f)
       fullName: EntityFunctionTests.EntityGetSTABMMultiplier(BULBASAUR,"Grass",1.5f)
       resultStatus: 1
-      duration: 0.0001066
+      duration: 0.0001095
       messages: 
       output: 
       stacktrace: 
@@ -1183,7 +1931,7 @@ MonoBehaviour:
       name: EntityGetSTABMMultiplier(BULBASAUR,"Water",1.0f)
       fullName: EntityFunctionTests.EntityGetSTABMMultiplier(BULBASAUR,"Water",1.0f)
       resultStatus: 1
-      duration: 0.0001043
+      duration: 0.0001053
       messages: 
       output: 
       stacktrace: 
@@ -1200,7 +1948,7 @@ MonoBehaviour:
       name: EntityInitialize
       fullName: EntityFunctionTests.EntityInitialize
       resultStatus: 1
-      duration: 0.0002873
+      duration: 0.0002132
       messages: 
       output: 
       stacktrace: 
@@ -1217,9 +1965,54 @@ MonoBehaviour:
       name: EntityTakeDamageBelowZero
       fullName: EntityFunctionTests.EntityTakeDamageBelowZero
       resultStatus: 1
-      duration: 0.0063257
+      duration: 0.007879
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -1233,7 +2026,7 @@ MonoBehaviour:
       name: EntityTakeDamageBelowZero(5)
       fullName: EntityFunctionTests.EntityTakeDamageBelowZero(5)
       resultStatus: 1
-      duration: 0.0004582
+      duration: 0.0004244
       messages: 
       output: 
       stacktrace: 
@@ -1250,7 +2043,7 @@ MonoBehaviour:
       name: EntityTakeDamageBelowZero(25)
       fullName: EntityFunctionTests.EntityTakeDamageBelowZero(25)
       resultStatus: 1
-      duration: 0.0001927
+      duration: 0.0002874
       messages: 
       output: 
       stacktrace: 
@@ -1267,7 +2060,7 @@ MonoBehaviour:
       name: EntityTakeDamageBelowZero(50)
       fullName: EntityFunctionTests.EntityTakeDamageBelowZero(50)
       resultStatus: 1
-      duration: 0.0001142
+      duration: 0.0001076
       messages: 
       output: 
       stacktrace: 
@@ -1284,9 +2077,54 @@ MonoBehaviour:
       name: EntityTakeDamageNeggativeInput
       fullName: EntityFunctionTests.EntityTakeDamageNeggativeInput
       resultStatus: 1
-      duration: 0.0091236
+      duration: 0.0068612
       messages: 
-      output: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -1300,7 +2138,7 @@ MonoBehaviour:
       name: EntityTakeDamageNeggativeInput(-5)
       fullName: EntityFunctionTests.EntityTakeDamageNeggativeInput(-5)
       resultStatus: 1
-      duration: 0.0003149
+      duration: 0.0003457
       messages: 
       output: 
       stacktrace: 
@@ -1317,7 +2155,7 @@ MonoBehaviour:
       name: EntityTakeDamageNeggativeInput(-25)
       fullName: EntityFunctionTests.EntityTakeDamageNeggativeInput(-25)
       resultStatus: 1
-      duration: 0.0001521
+      duration: 0.0001164
       messages: 
       output: 
       stacktrace: 
@@ -1334,7 +2172,7 @@ MonoBehaviour:
       name: EntityTakeDamageNeggativeInput(-50)
       fullName: EntityFunctionTests.EntityTakeDamageNeggativeInput(-50)
       resultStatus: 1
-      duration: 0.0001114
+      duration: 0.0001021
       messages: 
       output: 
       stacktrace: 
@@ -1350,10 +2188,55 @@ MonoBehaviour:
       uniqueId: EditModeTests.dll/[EditModeTests][PlayerDataTests][suite]
       name: PlayerDataTests
       fullName: PlayerDataTests
-      resultStatus: 2
-      duration: 0.0150356
-      messages: One or more child tests had errors
-      output: 
+      resultStatus: 1
+      duration: 0.0288016
+      messages: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
       stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
@@ -1363,20 +2246,28 @@ MonoBehaviour:
       parentId: 1055
       parentUniqueId: '[EditModeTests][E:/Unity Projects/Idlemon/Library/ScriptAssemblies/EditModeTests.dll][suite]'
     - id: 1053
-      uniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilds]
-      name: PlayerBuilds
-      fullName: PlayerDataTests.PlayerBuilds
-      resultStatus: 2
-      duration: 0.0046521
-      messages: 'System.NotImplementedException : The method or operation is not
-        implemented.'
-      output: 
-      stacktrace: "  at PlayerBuilder.Build () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Scripts\\Interfaces\\Builders\\PlayerBuilder.cs:9
-        \r\n  at PlayerDataTests.PlayerBuilds () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Tests\\EditModeTests\\Player\\PlayerDataTests.cs:12
-        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
-        System.Globalization.CultureInfo culture) [0x0006a] in <6073cf49ed704e958b8a66d540dea948>:0 "
+      uniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderBuilds]
+      name: PlayerBuilderBuilds
+      fullName: PlayerDataTests.PlayerBuilderBuilds
+      resultStatus: 1
+      duration: 0.0028361
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+'
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1386,20 +2277,14 @@ MonoBehaviour:
       parentId: 1052
       parentUniqueId: EditModeTests.dll/[EditModeTests][PlayerDataTests][suite]
     - id: 1054
-      uniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerDataBuilds]
-      name: PlayerDataBuilds
-      fullName: PlayerDataTests.PlayerDataBuilds
-      resultStatus: 2
-      duration: 0.0006315
-      messages: 'System.NotImplementedException : The method or operation is not
-        implemented.'
+      uniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderEmptyParty]
+      name: PlayerBuilderEmptyParty
+      fullName: PlayerDataTests.PlayerBuilderEmptyParty
+      resultStatus: 1
+      duration: 0.0004043
+      messages: 
       output: 
-      stacktrace: "  at PlayerDataBuilder.Build () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Scripts\\Interfaces\\Builders\\PlayerDataBuilder.cs:9
-        \r\n  at PlayerDataTests.PlayerDataBuilds () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Tests\\EditModeTests\\Player\\PlayerDataTests.cs:18
-        \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-        at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-        invokeAttr, System.Reflection.Binder binder, System.Object[] parameters,
-        System.Globalization.CultureInfo culture) [0x0006a] in <6073cf49ed704e958b8a66d540dea948>:0 "
+      stacktrace: 
       notRunnable: 0
       ignoredOrSkipped: 0
       description: 
@@ -1408,25 +2293,198 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1052
       parentUniqueId: EditModeTests.dll/[EditModeTests][PlayerDataTests][suite]
-    m_ResultText: "PlayerBuilds (0.005s)\n---\nSystem.NotImplementedException : The
-      method or operation is not implemented.\n---\nat PlayerBuilder.Build () [0x00001]
-      in E:\\Unity Projects\\Idlemon\\Assets\\Scripts\\Interfaces\\Builders\\PlayerBuilder.cs:9
-      \r\n  at PlayerDataTests.PlayerBuilds () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Tests\\EditModeTests\\Player\\PlayerDataTests.cs:12
-      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x0006a] in <6073cf49ed704e958b8a66d540dea948>:0"
-    m_ResultStacktrace: "  at PlayerBuilder.Build () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Scripts\\Interfaces\\Builders\\PlayerBuilder.cs:9
-      \r\n  at PlayerDataTests.PlayerBuilds () [0x00001] in E:\\Unity Projects\\Idlemon\\Assets\\Tests\\EditModeTests\\Player\\PlayerDataTests.cs:12
-      \r\n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\r\n 
-      at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x0006a] in <6073cf49ed704e958b8a66d540dea948>:0 "
+    - id: 1056
+      uniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderWithName][suite]
+      name: PlayerBuilderWithName
+      fullName: PlayerDataTests.PlayerBuilderWithName
+      resultStatus: 1
+      duration: 0.018649
+      messages: 
+      output: 'Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation of
+        64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+        TLS
+        Allocator ALLOC_TEMP_TLS, underlying allocator ALLOC_TEMP_MAIN has unfreed
+        allocations, size 448
+
+        Internal: Stack allocator ALLOC_TEMP_MAIN
+        has unfreed allocations, size 448
+
+        To Debug, enable the define:
+        DEBUG_STACK_LEAK in StackAllocator.h. This will output the callstacks of
+        the leaked allocations
+
+        Allocation of 64 bytes at 000001A3805801F0
+
+        Allocation
+        of 64 bytes at 000001A3805801A0
+
+        Allocation of 64 bytes at 000001A380580150
+
+        Allocation
+        of 64 bytes at 000001A380580100
+
+        Allocation of 64 bytes at 000001A3805800B0
+
+        Allocation
+        of 64 bytes at 000001A380580060
+
+        Allocation of 64 bytes at 000001A380580010
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1052
+      parentUniqueId: EditModeTests.dll/[EditModeTests][PlayerDataTests][suite]
+    - id: 1055
+      uniqueId: EditModeTests.dll/PlayerDataTests/PlayerBuilderWithName/[EditModeTests][PlayerDataTests.PlayerBuilderWithName("Gilby")]
+      name: PlayerBuilderWithName("Gilby")
+      fullName: PlayerDataTests.PlayerBuilderWithName("Gilby")
+      resultStatus: 1
+      duration: 0.0032362
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1059
+      parentUniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderWithName][suite]
+    - id: 1056
+      uniqueId: EditModeTests.dll/PlayerDataTests/PlayerBuilderWithName/[EditModeTests][PlayerDataTests.PlayerBuilderWithName("Showbie")]
+      name: PlayerBuilderWithName("Showbie")
+      fullName: PlayerDataTests.PlayerBuilderWithName("Showbie")
+      resultStatus: 1
+      duration: 0.0027231
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1059
+      parentUniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderWithName][suite]
+    - id: 1057
+      uniqueId: EditModeTests.dll/PlayerDataTests/PlayerBuilderWithName/[EditModeTests][PlayerDataTests.PlayerBuilderWithName("Pat")]
+      name: PlayerBuilderWithName("Pat")
+      fullName: PlayerDataTests.PlayerBuilderWithName("Pat")
+      resultStatus: 1
+      duration: 0.002551
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1059
+      parentUniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderWithName][suite]
+    - id: 1058
+      uniqueId: EditModeTests.dll/PlayerDataTests/PlayerBuilderWithName/[EditModeTests][PlayerDataTests.PlayerBuilderWithName("George")]
+      name: PlayerBuilderWithName("George")
+      fullName: PlayerDataTests.PlayerBuilderWithName("George")
+      resultStatus: 1
+      duration: 0.0028335
+      messages: 
+      output: 'PlayerData initializing...
+
+        PlayerData initialized...
+
+        PlayerData
+        party.Count: 0
+
+        PlayerData party.Count before: 1
+
+        PlayerData
+        party.Count after: 1
+
+        PlayerData party.Count: 1
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1059
+      parentUniqueId: EditModeTests.dll/PlayerDataTests/[EditModeTests][PlayerDataTests.PlayerBuilderWithName][suite]
+    m_ResultText: EditModeTests.dll (0.529s)
+    m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 309eaa86
-      m_LastClickedID: -2035638736
-      m_ExpandedIDs: e65bbd86374cd49b26adeda6640d7aab31cf39b657e4e20f15ff3e1c2947d61ce7c79423cd1f6524bb00cf25005a2d2c7ce4a233b732c86213933576ffffff7f
+      m_SelectedIDs: 06b5c5da
+      m_LastClickedID: -624577274
+      m_ExpandedIDs: e65bbd86374cd49b26adeda6640d7aab31cf39b606b5c5da15ff3e1c2947d61ce7c79423cd1f6524bb00cf257ce4a233bca74d34b732c8626a223a7313933576ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1521,22 +2579,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Data
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Data
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: E:\Unity Projects\Idlemon
+  m_LastProjectPath: E:\Unity Projects\TurnBasedTDDProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 6e760000
-    m_LastClickedID: 30318
-    m_ExpandedIDs: 000000006e760000
+    m_SelectedIDs: 16c70000
+    m_LastClickedID: 50966
+    m_ExpandedIDs: 0000000094c6000096c6000098c600009ac600009cc600009ec60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1564,7 +2622,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 0000000094c6000096c6000098c600009ac600009cc600009ec60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1608,7 +2666,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1640,8 +2698,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1531
-    y: 73
+    x: -389
+    y: 168
     width: 388
     height: 936
   m_ViewDataDictionary: {fileID: 0}
@@ -1654,7 +2712,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 52198
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -1692,9 +2750,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6e760000
+      m_SelectedIDs: e6cb0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 44f3ffff9cf4ffff54f5ffff1cfbffff
+      m_ExpandedIDs: 322bffffea2effff2032ffff9032ffff5a34ffff1c38ffff843affff3c3cfffff63dffffba3fffff0a45ffff6e47ffffde49ffff4a4cffff304fffffee50ffffaa52ffff5c54ffff0c56ffff3059ffff4e5dffff7463ffff2265ffff9a67ffffe26affff386dffffe46effffac72ffff0675ffff6c77ffff6a78ffff6879ffff167bffff6081ffff0483ffffd484ffffe48affff848cffff0491ffffa492ffff4a94ffffe295ffff7e97ffff669bffffa89dffff709fffff5aa0ffff34a4ffff38a7ffff84a9ffff80adffff78aeffff60afffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2065,10 +3123,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 507
-    y: 94
-    width: 1532
-    height: 790
+    x: -1541
+    y: 168
+    width: 1150
+    height: 558
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -2079,10 +3137,10 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1532, y: 769}
+  m_TargetSize: {x: 1150, y: 537}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
-  m_RenderIMGUI: 0
+  m_RenderIMGUI: 1
   m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
@@ -2094,10 +3152,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -766
-    m_HBaseRangeMax: 766
-    m_VBaseRangeMin: -384.5
-    m_VBaseRangeMax: 384.5
+    m_HBaseRangeMin: -575
+    m_HBaseRangeMax: 575
+    m_VBaseRangeMin: -268.5
+    m_VBaseRangeMax: 268.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -2106,7 +3164,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -2115,23 +3173,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1532
-      height: 769
+      width: 1150
+      height: 537
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 766, y: 384.5}
+    m_Translation: {x: 575, y: 268.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -766
-      y: -384.5
-      width: 1532
-      height: 769
+      x: -575
+      y: -268.5
+      width: 1150
+      height: 537
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1532, y: 790}
+  m_LastWindowPixelSize: {x: 1150, y: 558}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -2157,10 +3215,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 8
-    y: 718
-    width: 1366
-    height: 308
+    x: -1920
+    y: 747
+    width: 1530
+    height: 357
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

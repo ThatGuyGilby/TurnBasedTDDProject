@@ -13,17 +13,22 @@ public class Battle : IInvoker
 
     public Entity ActiveEnemyEntity => battleData.activeEnemyEntity;
     public Entity ActivePlayerEntity => battleData.activePlayerEntity;
+    public bool IsFinished { get; private set; }
     public bool IsInitialized { get; private set; }
 
-    public void ExecuteQueuedCommands()
+    public void ApplyEndOfTurnEffects()
     {
-        foreach (var item in battleData.queuedCommands)
+        if (!ActiveEnemyEntity.IsAlive())
         {
-            item.Execute();
-            battleData.executedCommands.Add(item);
+            HelperFunctions.Log("You won!");
+            IsFinished = true;
         }
 
-        battleData.queuedCommands = new List<ICommand>();
+        if (!ActivePlayerEntity.IsAlive())
+        {
+            HelperFunctions.Log("You lost!");
+            IsFinished = true;
+        }
     }
 
     public float GetWeatherMultiplier(string attributeString)
@@ -34,7 +39,7 @@ public class Battle : IInvoker
 
         List<AttributeData> powerBoostedTypes = new List<AttributeData>();
 
-        HelperFunctions.Log($"{battleData.weatherData.name}");
+        //HelperFunctions.Log($"{battleData.weatherData.name}");
 
         foreach (string powerBoostedType in battleData.weatherData.powerBoostKeys)
         {
@@ -91,6 +96,20 @@ public class Battle : IInvoker
         }
 
         IsInitialized = true;
+        IsFinished = false;
+    }
+
+    public void ProcessTurn()
+    {
+        foreach (ICommand command in battleData.queuedCommands)
+        {
+            command.Execute();
+            battleData.executedCommands.Add(command);
+        }
+
+        battleData.queuedCommands = new List<ICommand>();
+
+        ApplyEndOfTurnEffects();
     }
 
     public void QueueCommand(ICommand command)
@@ -98,7 +117,7 @@ public class Battle : IInvoker
         battleData.queuedCommands.Add(command);
     }
 
-    public void SendPlayerMove(int moveIndex)
+    public void SendPlayerInput(int moveIndex)
     {
         if (moveIndex >= Constants.NUMBER_OF_LEARNABLE_MOVES)
         {
@@ -110,8 +129,14 @@ public class Battle : IInvoker
             HelperFunctions.ThrowException("moveIndex was above the number of known moves");
         }
 
-        EntityAttackEntityCommand playerEntityAttackEntityCommand = GenerateAttackCommand(ActivePlayerEntity, ActiveEnemyEntity, moveIndex);
-        QueueCommand(playerEntityAttackEntityCommand);
+        // Player attack command
+        QueueCommand(GenerateAttackCommand(ActivePlayerEntity, ActiveEnemyEntity, moveIndex));
+
+        // Enemy attack command
+        QueueCommand(GenerateAttackCommand(ActiveEnemyEntity, ActivePlayerEntity, 0));
+
+        // Process the turn
+        ProcessTurn();
     }
 
     private EntityAttackEntityCommand GenerateAttackCommand(Entity attacker, Entity defender, int moveIndex)
@@ -122,7 +147,7 @@ public class Battle : IInvoker
     private void SendEntityIntoBattle(Entity entity, Entity other, ref Entity activeEntity)
     {
         EntitySentIntoBattle entitySentIntoBattle = new EntitySentIntoBattle(entity, other);
-        QueueCommand(entitySentIntoBattle);
+        entitySentIntoBattle.Execute();
 
         activeEntity = entity;
     }
@@ -131,7 +156,5 @@ public class Battle : IInvoker
     {
         SendEntityIntoBattle(battleData.playerEntities[0], battleData.activeEnemyEntity, ref battleData.activePlayerEntity);
         SendEntityIntoBattle(battleData.enemyEntities[0], battleData.activePlayerEntity, ref battleData.activeEnemyEntity);
-
-        ExecuteQueuedCommands();
     }
 }

@@ -65,22 +65,6 @@ public class BattleTests
         Assert.That(ex.Message, Is.EqualTo($"Invalid player party size: 0"));
     }
 
-    [Test]
-    public void BattleQueueAndExecuteCommand()
-    {
-        Entity charmander = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.CHARMANDER).Build();
-
-        Entity bulbasaur = new EntityBuilder().WithLevel(5).WithSpecies(SpeciesKey.BULBASAUR).Build();
-
-        Battle battle = new BattleBuilder().WithEnemyEntity(bulbasaur).WithPlayerEntity(charmander).Build();
-
-        ICommand playerAttackEnemyCommand = new EntityAttackEntityCommand(charmander, bulbasaur, MoveKey.FLAMETHROWER, battle);
-        battle.QueueCommand(playerAttackEnemyCommand);
-        battle.ExecuteQueuedCommands();
-
-        Assert.IsFalse(battle.ActiveEnemyEntity.IsAlive());
-    }
-
     [TestCase("Fire", WeatherKey.SUN, ExpectedResult = 1.5f)]
     [TestCase("Water", WeatherKey.SUN, ExpectedResult = 0.5f)]
     [TestCase("Water", WeatherKey.RAIN, ExpectedResult = 1.5f)]
